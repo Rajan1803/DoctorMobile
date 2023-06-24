@@ -1,0 +1,74 @@
+<?xml version="1.0" encoding="utf-8"?>
+<layout xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:app="http://schemas.android.com/apk/res-auto"
+    xmlns:tools="http://schemas.android.com/tools">
+
+
+    <androidx.constraintlayout.widget.ConstraintLayout
+        android:layout_width="match_parent"
+        android:layout_height="match_parent"
+        android:padding="16dp"
+        tools:context=".activities.NotificationActivity">
+
+        <include
+            android:id="@+id/toolbar"
+            layout="@layout/toolbar_layout"
+
+
+            />
+
+        <TextView
+            android:id="@+id/txtvNew"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:layout_marginTop="70dp"
+            android:fontFamily="@font/averia_sans_libre_bold"
+            android:text="@string/new_string"
+            android:textSize="24sp"
+
+
+            app:layout_constraintStart_toStartOf="parent"
+            app:layout_constraintTop_toTopOf="parent" />
+
+        <TextView
+            android:id="@+id/txtvMarkAll"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:fontFamily="@font/averia_sans_libre"
+            android:text="@string/mark_all"
+            android:textSize="16sp"
+            app:layout_constraintEnd_toEndOf="parent"
+
+
+            app:layout_constraintTop_toTopOf="@id/txtvNew"
+            app:layout_constraintBottom_toBottomOf="@id/txtvNew"
+            />
+
+        <androidx.recyclerview.widget.RecyclerView
+            android:id="@+id/rvNotification"
+            android:layout_width="0dp"
+            android:layout_height="0dp"
+
+            android:layout_marginTop="40dp"
+            app:layout_constraintBottom_toTopOf="@+id/textView"
+
+
+            app:layout_constraintEnd_toEndOf="@id/txtvMarkAll"
+            app:layout_constraintStart_toStartOf="@id/txtvNew"
+            app:layout_constraintTop_toBottomOf="@id/txtvNew" />
+
+        <TextView
+            android:id="@+id/textView"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:fontFamily="@font/averia_sans_libre_bold"
+            android:padding="24dp"
+
+            android:text="@string/see_all"
+            android:textSize="22sp"
+            app:layout_constraintBottom_toBottomOf="parent"
+            app:layout_constraintEnd_toEndOf="parent"
+            app:layout_constraintStart_toStartOf="parent" />
+
+    </androidx.constraintlayout.widget.ConstraintLayout>
+</layout>

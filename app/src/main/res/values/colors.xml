@@ -2,4 +2,11 @@
 <resources>
     <color name="black">#FF000000</color>
     <color name="white">#FFFFFFFF</color>
+    <color name="offWhite">#8585854D</color>
+    <color name="hintColor">#858585</color>
+    <color name="skyBlue">#198EB6</color>
+    <color name="cardBgr">#D9D9D94D</color>
+    <color name="red">#FF0000</color>
+    <color name="searchBgr">#f4f4f4</color>
+    <color name="green">#15B826</color>
 </resources>

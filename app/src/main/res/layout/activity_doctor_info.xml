@@ -1,0 +1,408 @@
+<?xml version="1.0" encoding="utf-8"?>
+<layout xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:app="http://schemas.android.com/apk/res-auto"
+    xmlns:tools="http://schemas.android.com/tools">
+
+    <data>
+        <variable
+            name="doctor"
+            type="com.example.doctormobile.model.Doctor" />
+    </data>
+
+    <androidx.constraintlayout.widget.ConstraintLayout
+        android:layout_width="match_parent"
+        android:layout_height="match_parent"
+        android:padding="16dp"
+        tools:context=".activities.DoctorInfoActivity">
+
+        <include
+            android:id="@+id/toolbar"
+            layout="@layout/toolbar_layout"
+
+
+            />
+        <ImageView
+            android:id="@+id/imgDoc"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            app:layout_constraintStart_toStartOf="parent"
+            android:layout_marginTop="70dp"
+            app:layout_constraintTop_toTopOf="parent"
+            app:srcCompat="@drawable/doctorprofile"
+            android:contentDescription="@string/doctor_picture" />
+
+        <TextView
+            android:id="@+id/txtvDRName"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:layout_marginStart="11dp"
+            android:layout_marginTop="8dp"
+            android:fontFamily="@font/averia_sans_libre_bold"
+            android:text="@{doctor.name}"
+            android:textSize="24sp"
+            app:layout_constraintStart_toEndOf="@+id/imgDoc"
+            app:layout_constraintTop_toTopOf="@+id/imgDoc" />
+
+        <TextView
+            android:id="@+id/txtvDRCategory"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:layout_marginTop="8dp"
+            android:fontFamily="@font/averia_sans_libre"
+            android:text="@string/denteeth"
+            android:textSize="20sp"
+            app:layout_constraintStart_toStartOf="@+id/txtvDRName"
+            app:layout_constraintTop_toBottomOf="@+id/txtvDRName" />
+
+        <TextView
+            android:id="@+id/txtvDrDescription"
+            android:layout_width="0dp"
+            android:layout_height="wrap_content"
+            android:layout_marginTop="13dp"
+            android:fontFamily="@font/averia_sans_libre_light"
+            android:text="@string/torem_ipsum_dolor_sit_amet_consectetur_adipiscing_elit"
+            app:layout_constraintEnd_toEndOf="parent"
+            app:layout_constraintStart_toStartOf="@+id/txtvDRCategory"
+            app:layout_constraintTop_toBottomOf="@+id/txtvDRCategory" />
+
+        <TextView
+            android:id="@+id/txtvPayment"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:layout_marginTop="15dp"
+            android:fontFamily="@font/averia_sans_libre_bold"
+            android:text="@string/payment"
+            android:textSize="20sp"
+            app:layout_constraintStart_toStartOf="@+id/txtvDrDescription"
+            app:layout_constraintTop_toBottomOf="@+id/txtvDrDescription" />
+
+        <TextView
+            android:id="@+id/txtvPrice"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:layout_marginEnd="24dp"
+            android:fontFamily="@font/averia_sans_libre_bold"
+            android:text="@string/_120_00"
+            android:textSize="20sp"
+            app:layout_constraintBottom_toBottomOf="@+id/txtvPayment"
+            app:layout_constraintEnd_toEndOf="parent"
+            app:layout_constraintTop_toTopOf="@+id/txtvPayment" />
+
+        <ImageButton
+            android:id="@+id/imgbtnMessage"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:padding="8dp"
+            android:layout_margin="8dp"
+            android:background="@android:color/transparent"
+            app:layout_constraintBottom_toBottomOf="@+id/imgbtnCall"
+            app:layout_constraintEnd_toStartOf="@+id/imgbtnCall"
+            app:layout_constraintTop_toTopOf="@+id/imgbtnCall"
+            app:srcCompat="@drawable/message_icon"
+            android:contentDescription="@string/chat" />
+
+        <ImageButton
+            android:id="@+id/imgbtnCall"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:padding="8dp"
+            android:layout_margin="8dp"
+            android:background="@android:color/transparent"
+            app:layout_constraintBottom_toBottomOf="@+id/imgbtnVCall"
+            app:layout_constraintEnd_toStartOf="@+id/imgbtnVCall"
+            app:layout_constraintTop_toTopOf="@id/imgDoc"
+            app:srcCompat="@drawable/call"
+            android:contentDescription="@string/call" />
+
+        <ImageButton
+            android:id="@+id/imgbtnVCall"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:padding="8dp"
+
+            android:background="@android:color/transparent"
+            app:layout_constraintEnd_toEndOf="parent"
+            app:layout_constraintTop_toTopOf="@+id/imgbtnCall"
+            app:srcCompat="@drawable/videocall"
+            android:contentDescription="@string/video_call" />
+
+        <TextView
+            android:id="@+id/txtvDetail"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:layout_marginTop="45dp"
+            android:fontFamily="@font/averia_sans_libre_bold"
+            android:text="@string/detailes"
+            android:textSize="24sp"
+            app:layout_constraintStart_toStartOf="parent"
+            app:layout_constraintTop_toBottomOf="@+id/imgDoc" />
+
+        <TextView
+            android:id="@+id/txtvDrDetails"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:layout_marginTop="16dp"
+            android:fontFamily="@font/averia_sans_libre_light"
+            android:text="@string/worem_ipsum_dolor_sit_amet_consectetur_adipiscing_elit_nunc_vulputate_libero_et_velit_interdum_ac_aliquet_odio_mattis_class_aptent_taciti_sociosqu_ad_litora_torquent_per_conubia_nostra_per_inceptos_himenaeos_curabitur_tempus_urna_at_turpis_condimentum_lobortis_ut_commodo_efficitur_neque_ut_diam_quam_semper_iaculis_condimentum_ac_vestibulum_eu_nisl"
+            android:textSize="16sp"
+            app:layout_constraintEnd_toEndOf="parent"
+            app:layout_constraintStart_toStartOf="@+id/txtvDetail"
+            app:layout_constraintTop_toBottomOf="@+id/txtvDetail" />
+
+        <TextView
+            android:id="@+id/txtvWorkingHours"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:layout_marginTop="34dp"
+            android:fontFamily="@font/averia_sans_libre_bold"
+            android:text="@string/working_hours"
+            android:textSize="24sp"
+            app:layout_constraintStart_toStartOf="@+id/txtvDrDetails"
+            app:layout_constraintTop_toBottomOf="@id/txtvDrDetails" />
+
+        <TextView
+            android:id="@+id/txtvSeeAllText"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:fontFamily="@font/averia_sans_libre"
+            android:text="@string/see_all"
+            android:textSize="16sp"
+            app:layout_constraintBottom_toBottomOf="@+id/txtvWorkingHours"
+            app:layout_constraintEnd_toEndOf="@+id/txtvDrDetails"
+            app:layout_constraintTop_toTopOf="@+id/txtvWorkingHours" />
+
+        <HorizontalScrollView
+            android:id="@+id/horizontalScrollView"
+            android:layout_width="0dp"
+            android:layout_height="wrap_content"
+            android:layout_marginTop="16dp"
+
+
+            android:scrollbars="none"
+            app:layout_constraintEnd_toEndOf="@id/txtvSeeAllText"
+            app:layout_constraintStart_toStartOf="@id/txtvWorkingHours"
+
+            app:layout_constraintTop_toBottomOf="@id/txtvSeeAllText">
+
+            <com.google.android.material.chip.ChipGroup
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                app:singleSelection="true"
+
+                >
+
+                <com.google.android.material.chip.Chip
+                    style="@style/chipTime"
+                    android:layout_width="wrap_content"
+                    android:layout_height="wrap_content"
+                    android:text="@string/_10_00_am"
+
+                    />
+
+                <com.google.android.material.chip.Chip
+                    style="@style/chipTime"
+                    android:layout_width="wrap_content"
+                    android:layout_height="wrap_content"
+                    android:text="@string/_11_00_am" />
+
+                <com.google.android.material.chip.Chip
+                    style="@style/chipTime"
+                    android:layout_width="wrap_content"
+                    android:layout_height="wrap_content"
+                    android:text="@string/_12_00_am"
+
+                    />
+
+                <com.google.android.material.chip.Chip
+                    style="@style/chipTime"
+                    android:layout_width="wrap_content"
+                    android:layout_height="wrap_content"
+                    android:text="@string/_01_00_pm"
+
+                    />
+
+                <com.google.android.material.chip.Chip
+                    style="@style/chipTime"
+                    android:layout_width="wrap_content"
+                    android:layout_height="wrap_content"
+                    android:text="@string/_02_00_pm"
+
+
+                    />
+
+                <com.google.android.material.chip.Chip
+                    style="@style/chipTime"
+                    android:layout_width="wrap_content"
+                    android:layout_height="wrap_content"
+                    android:text="@string/_03_00_pm"
+
+                    />
+
+                <com.google.android.material.chip.Chip
+                    style="@style/chipTime"
+                    android:layout_width="wrap_content"
+                    android:layout_height="wrap_content"
+                    android:text="@string/_04_00_pm"
+
+
+                    />
+
+                <com.google.android.material.chip.Chip
+                    style="@style/chipTime"
+                    android:layout_width="wrap_content"
+                    android:layout_height="wrap_content"
+                    android:text="@string/_05_00_pm"
+
+                    />
+
+                <com.google.android.material.chip.Chip
+                    style="@style/chipTime"
+                    android:layout_width="wrap_content"
+                    android:layout_height="wrap_content"
+                    android:text="@string/_06_00_pm"
+
+
+                    />
+
+                <com.google.android.material.chip.Chip
+                    style="@style/chipTime"
+                    android:layout_width="wrap_content"
+                    android:layout_height="wrap_content"
+                    android:text="@string/_07_00_pm"
+
+                    />
+
+                <com.google.android.material.chip.Chip
+                    style="@style/chipTime"
+                    android:layout_width="wrap_content"
+                    android:layout_height="wrap_content"
+                    android:text="@string/_08_00_pm"
+
+
+                    />
+
+                <com.google.android.material.chip.Chip
+                    style="@style/chipTime"
+                    android:layout_width="wrap_content"
+                    android:layout_height="wrap_content"
+                    android:text="@string/_09_00_pm"
+
+                    />
+
+                <com.google.android.material.chip.Chip
+                    style="@style/chipTime"
+                    android:layout_width="wrap_content"
+                    android:layout_height="wrap_content"
+                    android:text="@string/_10_00_pm"
+
+
+                    />
+
+            </com.google.android.material.chip.ChipGroup>
+
+        </HorizontalScrollView>
+
+        <TextView
+            android:id="@+id/txtvDate"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:layout_marginTop="28dp"
+            android:fontFamily="@font/averia_sans_libre_bold"
+            android:text="@string/date"
+            android:textSize="24sp"
+            app:layout_constraintStart_toStartOf="@+id/horizontalScrollView"
+            app:layout_constraintTop_toBottomOf="@+id/horizontalScrollView" />
+
+        <TextView
+            android:id="@+id/txtvSeeAll"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:fontFamily="@font/averia_sans_libre"
+            android:text="@string/see_all"
+            android:textSize="16sp"
+            app:layout_constraintBottom_toBottomOf="@+id/txtvDate"
+            app:layout_constraintEnd_toEndOf="@+id/horizontalScrollView"
+            app:layout_constraintTop_toTopOf="@+id/txtvDate" />
+
+
+        <HorizontalScrollView
+            android:id="@+id/horizontalScrollViewDate"
+            android:layout_width="0dp"
+            android:layout_height="wrap_content"
+            android:layout_marginTop="24dp"
+
+
+            android:scrollbars="none"
+            app:layout_constraintEnd_toEndOf="@id/txtvSeeAll"
+            app:layout_constraintStart_toStartOf="@id/txtvDate"
+
+            app:layout_constraintTop_toBottomOf="@id/txtvSeeAll">
+
+            <com.google.android.material.chip.ChipGroup
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                app:singleSelection="true"
+
+                >
+
+
+                <com.google.android.material.chip.Chip
+                    style="@style/chipTime"
+                    android:layout_width="wrap_content"
+                    android:layout_height="wrap_content"
+                    android:text="@string/sun_4"
+
+                    android:textSize="28sp"
+
+
+                    />
+
+                <com.google.android.material.chip.Chip
+                    style="@style/chipTime"
+                    android:layout_width="wrap_content"
+                    android:layout_height="wrap_content"
+                    android:text="@string/mon_5"
+                    android:textSize="28sp" />
+
+                <com.google.android.material.chip.Chip
+                    style="@style/chipTime"
+                    android:layout_width="wrap_content"
+                    android:layout_height="wrap_content"
+                    android:text="@string/tue_6"
+                    android:textSize="28sp" />
+
+                <com.google.android.material.chip.Chip
+                    style="@style/chipTime"
+                    android:layout_width="wrap_content"
+                    android:layout_height="wrap_content"
+                    android:text="@string/wed_7"
+                    android:textSize="28sp"
+
+                    />
+
+                <com.google.android.material.chip.Chip
+                    style="@style/chipTime"
+                    android:layout_width="wrap_content"
+                    android:layout_height="wrap_content"
+                    android:text="@string/thu_8"
+                    android:textSize="28sp" />
+
+
+            </com.google.android.material.chip.ChipGroup>
+
+        </HorizontalScrollView>
+
+        <com.google.android.material.button.MaterialButton
+            android:id="@+id/btnBookAppointment"
+            android:layout_width="0dp"
+            android:layout_height="wrap_content"
+            android:layout_marginTop="40dp"
+            android:text="@string/book_an_appointment"
+            style="@style/Button.SkyBlue"
+            app:layout_constraintEnd_toEndOf="@+id/horizontalScrollViewDate"
+            app:layout_constraintStart_toStartOf="@+id/horizontalScrollViewDate"
+            app:layout_constraintTop_toBottomOf="@+id/horizontalScrollViewDate" />
+
+
+    </androidx.constraintlayout.widget.ConstraintLayout>
+</layout>

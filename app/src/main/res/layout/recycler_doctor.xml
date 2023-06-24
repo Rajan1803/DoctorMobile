@@ -1,0 +1,104 @@
+<?xml version="1.0" encoding="utf-8"?>
+<layout xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:app="http://schemas.android.com/apk/res-auto"
+    xmlns:tools="http://schemas.android.com/tools">
+
+    <data>
+        <variable
+            name="doctor"
+            type="com.example.doctormobile.model.Doctor" />
+    </data>
+
+    <com.google.android.material.card.MaterialCardView
+        android:layout_height="wrap_content"
+        android:layout_width="match_parent"
+        app:cardCornerRadius="10dp"
+        >
+
+        <androidx.constraintlayout.widget.ConstraintLayout
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:padding="16dp"
+            android:background="@color/searchBgr">
+
+
+            <com.google.android.material.imageview.ShapeableImageView
+                android:id="@+id/imgDoctor"
+                android:layout_width="138dp"
+                android:layout_height="163dp"
+                android:src="@drawable/doctor"
+
+
+                app:layout_constraintBottom_toBottomOf="parent"
+                app:layout_constraintStart_toStartOf="parent"
+                app:layout_constraintTop_toTopOf="parent" />
+
+            <TextView
+                android:id="@+id/txtvDoctorName"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:layout_marginStart="8dp"
+                android:layout_marginTop="16dp"
+                android:fontFamily="@font/averia_sans_libre_bold"
+
+                android:text="@{doctor.name}"
+                android:textSize="16sp"
+                app:layout_constraintStart_toEndOf="@+id/imgDoctor"
+                app:layout_constraintTop_toTopOf="parent" />
+
+            <TextView
+                android:id="@+id/txtvDoctorDescription"
+                android:layout_width="0dp"
+                android:layout_height="wrap_content"
+                android:layout_marginTop="16dp"
+                android:fontFamily="@font/averia_sans_libre"
+                android:text="@{doctor.description}"
+                android:textSize="13sp"
+                app:layout_constraintEnd_toEndOf="parent"
+                app:layout_constraintStart_toStartOf="@+id/txtvDoctorName"
+                app:layout_constraintTop_toBottomOf="@+id/txtvDoctorName" />
+
+            <Button
+                android:id="@+id/btnBook"
+                style="@style/Button.SkyBlue"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:layout_marginStart="6dp"
+                android:layout_marginTop="16dp"
+                android:fontFamily="@font/averia_sans_libre"
+                android:padding="0dp"
+                android:text="@string/book"
+                android:textSize="16sp"
+                app:layout_constraintBottom_toBottomOf="parent"
+                app:layout_constraintStart_toStartOf="@+id/txtvDoctorDescription"
+                app:layout_constraintTop_toBottomOf="@+id/txtvDoctorDescription" />
+
+            <ImageView
+                android:id="@+id/imgFavourite"
+                android:layout_width="20dp"
+                android:layout_height="20dp"
+                app:layout_constraintBottom_toBottomOf="@+id/txtvDoctorName"
+                android:background="@android:color/transparent"
+
+                app:layout_constraintEnd_toEndOf="parent"
+                app:layout_constraintTop_toTopOf="@id/txtvDoctorName"
+                app:srcCompat="@drawable/favourite"
+                android:contentDescription="@string/favourite_logo" />
+
+            <com.google.android.material.textview.MaterialTextView
+                android:id="@+id/txtvRatting"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:layout_marginEnd="8dp"
+                android:drawableStart="@drawable/star_icon"
+                android:text="@string/_5_0"
+
+                app:fontFamily="@font/averia_sans_libre"
+                app:layout_constraintBottom_toBottomOf="@+id/btnBook"
+                app:layout_constraintEnd_toEndOf="@+id/txtvDoctorDescription"
+                app:layout_constraintTop_toTopOf="@+id/btnBook" />
+
+
+        </androidx.constraintlayout.widget.ConstraintLayout>
+    </com.google.android.material.card.MaterialCardView>
+</layout>

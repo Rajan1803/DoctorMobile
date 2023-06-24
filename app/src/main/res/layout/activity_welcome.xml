@@ -1,0 +1,189 @@
+<?xml version="1.0" encoding="utf-8"?>
+<layout xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:app="http://schemas.android.com/apk/res-auto"
+    xmlns:tools="http://schemas.android.com/tools">
+
+
+
+    <ScrollView
+
+        android:layout_width="match_parent"
+        android:layout_height="match_parent"
+
+        >
+    <androidx.constraintlayout.widget.ConstraintLayout
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        tools:context=".activities.WelcomeActivity"
+        android:padding="26dp"
+        >
+
+        <include
+            android:id="@+id/toolbar"
+            layout="@layout/toolbar_layout"
+
+
+            />
+
+        <TextView
+            android:id="@+id/txtvSignIn"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:fontFamily="@font/averia_sans_libre_bold"
+            android:text="@string/sign_in"
+            android:textSize="26sp"
+            android:layout_marginTop="70dp"
+            app:layout_constraintStart_toStartOf="parent"
+            app:layout_constraintTop_toTopOf="parent" />
+
+        <TextView
+            android:id="@+id/txtvDescription"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:layout_marginTop="24dp"
+            android:fontFamily="@font/averia_sans_libre"
+            android:text="@string/korem_ipsum_dolor_sit_amet_consectetur_adipiscing_elit"
+            android:textSize="18sp"
+            app:layout_constraintStart_toStartOf="@+id/txtvSignIn"
+            app:layout_constraintTop_toBottomOf="@+id/txtvSignIn" />
+
+        <TextView
+            android:id="@+id/txtvEmail"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            style="@style/inputTextLabel"
+            android:layout_marginTop="50dp"
+            android:text="@string/email"
+            app:layout_constraintStart_toStartOf="@id/txtvDescription"
+            app:layout_constraintTop_toBottomOf="@id/txtvDescription" />
+
+        <com.google.android.material.textfield.TextInputLayout
+            android:id="@+id/txtinputLayoutEmail"
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:layout_marginTop="8dp"
+            app:hintEnabled="false"
+            android:background="@android:color/transparent"
+            app:layout_constraintTop_toBottomOf="@id/txtvEmail"
+            app:layout_constraintStart_toStartOf="@id/txtvEmail"
+            >
+        <com.google.android.material.textfield.TextInputEditText
+
+            android:id="@+id/etxtEmail"
+            style="@style/EditText"
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:hint="@string/enter_your_email"
+            android:inputType="textEmailAddress"
+
+
+
+
+
+            />
+        </com.google.android.material.textfield.TextInputLayout>
+
+        <TextView
+            android:id="@+id/txtvPassword"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            style="@style/inputTextLabel"
+            android:layout_marginTop="50dp"
+            android:text="@string/password"
+            app:layout_constraintStart_toStartOf="@id/txtinputLayoutEmail"
+            app:layout_constraintTop_toBottomOf="@id/txtinputLayoutEmail" />
+
+        <com.google.android.material.textfield.TextInputLayout
+            android:id="@+id/txtinputLayout"
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:layout_marginTop="8dp"
+            android:background="@android:color/transparent"
+            app:hintEnabled="false"
+            app:layout_constraintStart_toStartOf="@id/txtvPassword"
+            app:layout_constraintTop_toBottomOf="@id/txtvPassword"
+            app:passwordToggleEnabled="true">
+
+            <com.google.android.material.textfield.TextInputEditText
+                android:id="@+id/etxtPassword"
+                style="@style/EditText"
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:hint="@string/enter_password"
+                android:inputType="textPassword"
+
+                />
+
+
+        </com.google.android.material.textfield.TextInputLayout>
+
+        <TextView
+            android:id="@+id/txtvForgetPassword"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:fontFamily="@font/averia_sans_libre"
+            android:text="@string/forget_password"
+
+
+            android:textSize="18sp"
+            app:layout_constraintEnd_toEndOf="@+id/txtinputLayout"
+            app:layout_constraintTop_toBottomOf="@+id/txtinputLayout" />
+
+        <Button
+            android:id="@+id/btnSignIn"
+            style="@style/Button.SkyBlue"
+            android:layout_width="0dp"
+            android:layout_height="wrap_content"
+            android:layout_marginTop="50dp"
+            android:fontFamily="@font/averia_sans_libre_bold"
+            android:text="@string/sign_in"
+            app:layout_constraintEnd_toEndOf="@+id/txtinputLayout"
+            app:layout_constraintStart_toStartOf="@+id/txtinputLayout"
+            app:layout_constraintTop_toBottomOf="@+id/txtvForgetPassword" />
+
+
+        <TextView
+            android:id="@+id/txtvOR"
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:layout_marginTop="10dp"
+
+
+            android:fontFamily="@font/averia_sans_libre"
+            android:gravity="center"
+            android:text="@string/or"
+            android:textColor="@color/hintColor"
+            android:textSize="22sp"
+            app:layout_constraintEnd_toEndOf="@+id/btnSignIn"
+            app:layout_constraintStart_toStartOf="@+id/btnSignIn"
+            app:layout_constraintTop_toBottomOf="@+id/btnSignIn" />
+
+        <com.google.android.material.imageview.ShapeableImageView
+            android:id="@+id/shapeableImageView"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+
+            android:layout_marginTop="10dp"
+
+            android:src="@drawable/facebook_google"
+            app:layout_constraintEnd_toEndOf="@+id/txtvOR"
+            app:layout_constraintStart_toStartOf="@+id/txtvOR"
+            app:layout_constraintTop_toBottomOf="@+id/txtvOR" />
+
+        <TextView
+            android:id="@+id/txtvAlreadyAccount"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:layout_marginTop="20dp"
+            android:fontFamily="@font/montserrat_alternates"
+            android:text="@string/don_t_have_an_account_sign_up"
+
+
+            android:textColor="@color/skyBlue"
+            android:textSize="16sp"
+            app:layout_constraintEnd_toEndOf="@+id/shapeableImageView"
+            app:layout_constraintStart_toStartOf="@+id/shapeableImageView"
+            app:layout_constraintTop_toBottomOf="@+id/shapeableImageView" />
+    </androidx.constraintlayout.widget.ConstraintLayout>
+    </ScrollView>
+</layout>

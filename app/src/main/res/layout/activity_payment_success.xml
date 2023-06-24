@@ -1,0 +1,79 @@
+<?xml version="1.0" encoding="utf-8"?>
+<layout xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:app="http://schemas.android.com/apk/res-auto"
+    xmlns:tools="http://schemas.android.com/tools">
+
+    <data>
+
+    </data>
+
+    <androidx.constraintlayout.widget.ConstraintLayout
+        android:layout_width="match_parent"
+        android:layout_height="match_parent"
+        android:padding="16dp"
+        tools:context=".activities.PaymentSuccessActivity">
+
+
+        <androidx.cardview.widget.CardView
+            android:id="@+id/scrollView"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:layout_marginTop="150dp"
+            app:cardCornerRadius="100dp"
+            app:layout_constraintTop_toTopOf="parent"
+            app:layout_constraintStart_toStartOf="parent"
+            app:layout_constraintEnd_toEndOf="parent"
+
+
+            >
+
+            <ImageView
+                android:id="@+id/imgvSuccess"
+                style="@style/circuler_image"
+                android:layout_width="200dp"
+                android:layout_height="200dp"
+
+                app:srcCompat="@drawable/check_payment"
+                android:background="@color/skyBlue"
+                app:layout_constraintDimensionRatio="1:1"
+
+                android:contentDescription="@string/payment_success" />
+        </androidx.cardview.widget.CardView>
+
+        <TextView
+            android:id="@+id/txtvCongratulations"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:layout_marginTop="46dp"
+            android:fontFamily="@font/averia_sans_libre_bold"
+            android:text="@string/congratulations"
+            android:textColor="@color/skyBlue"
+            android:textSize="40sp"
+            app:layout_constraintEnd_toEndOf="@+id/scrollView"
+            app:layout_constraintStart_toStartOf="@+id/scrollView"
+            app:layout_constraintTop_toBottomOf="@+id/scrollView" />
+
+        <TextView
+            android:id="@+id/txtvPaymentMessage"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:layout_marginTop="23dp"
+            android:fontFamily="@font/averia_sans_libre_bold"
+            android:text="@string/your_payment_is_successfuly"
+            android:textSize="20sp"
+            app:layout_constraintEnd_toEndOf="@+id/txtvCongratulations"
+            app:layout_constraintStart_toStartOf="@+id/txtvCongratulations"
+            app:layout_constraintTop_toBottomOf="@+id/txtvCongratulations" />
+
+        <Button
+            android:id="@+id/btnBack"
+            style="@style/Button.SkyBlue"
+            android:layout_width="0dp"
+            android:layout_height="wrap_content"
+            android:layout_marginBottom="60dp"
+            android:text="@string/back"
+            app:layout_constraintBottom_toBottomOf="parent"
+            app:layout_constraintEnd_toEndOf="parent"
+            app:layout_constraintStart_toStartOf="parent" />
+    </androidx.constraintlayout.widget.ConstraintLayout>
+</layout>

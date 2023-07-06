@@ -63,6 +63,7 @@
                     android:layout_width="0dp"
                     android:layout_height="wrap_content"
                     android:layout_marginTop="30dp"
+                    app:queryBackground="@android:color/transparent"
                     app:iconifiedByDefault="false"
                     app:layout_constraintEnd_toEndOf="parent"
                     app:layout_constraintStart_toStartOf="@+id/txtvProfile"
@@ -115,77 +116,19 @@
                     app:layout_constraintEnd_toEndOf="parent"
                     app:layout_constraintTop_toTopOf="@+id/txtvCategories" />
 
-                <HorizontalScrollView
-                    android:id="@+id/horizontalScrollV"
-                    android:layout_width="wrap_content"
+
+                <androidx.recyclerview.widget.RecyclerView
+                    android:id="@+id/rvCategory"
+                    android:layout_width="0dp"
                     android:layout_height="wrap_content"
-                    android:layout_marginTop="30dp"
-                    android:scrollIndicators="none"
-                    android:scrollbars="none"
-                    app:layout_constraintEnd_toEndOf="@id/txtvAll"
-                    app:layout_constraintStart_toStartOf="@+id/txtvCategories"
+                    android:orientation="horizontal"
+                    app:layout_constraintEnd_toEndOf="@id/txtvSeeAll"
                     app:layout_constraintTop_toBottomOf="@id/txtvCategories"
+                    app:layout_constraintStart_toStartOf="@id/txtvCategories"
+                    tools:listitem="@tools:sample/cities"
 
-                    >
+                    />
 
-                    <com.google.android.material.chip.ChipGroup
-                        android:id="@+id/chipGroup"
-                        android:layout_width="wrap_content"
-                        android:layout_height="wrap_content">
-
-
-                        <com.google.android.material.chip.Chip
-
-                            style="@style/chip"
-                            android:layout_width="wrap_content"
-                            android:layout_height="wrap_content"
-                            android:backgroundTint="@color/skyBlue"
-                            android:text="@string/denteeth" />
-
-                        <com.google.android.material.chip.Chip
-
-                            style="@style/chip"
-                            android:layout_width="wrap_content"
-                            android:layout_height="wrap_content"
-                            android:backgroundTint="@color/skyBlue"
-                            android:text="@string/denteeth" />
-
-                        <com.google.android.material.chip.Chip
-
-                            style="@style/chip"
-                            android:layout_width="wrap_content"
-                            android:layout_height="wrap_content"
-                            android:backgroundTint="@color/skyBlue"
-                            android:text="@string/denteeth" />
-
-                        <com.google.android.material.chip.Chip
-
-                            style="@style/chip"
-                            android:layout_width="wrap_content"
-                            android:layout_height="wrap_content"
-                            android:backgroundTint="@color/skyBlue"
-                            android:text="@string/denteeth" />
-
-                        <com.google.android.material.chip.Chip
-
-                            style="@style/chip"
-                            android:layout_width="wrap_content"
-                            android:layout_height="wrap_content"
-                            android:backgroundTint="@color/skyBlue"
-                            android:text="@string/denteeth" />
-
-                        <com.google.android.material.chip.Chip
-
-                            style="@style/chip"
-                            android:layout_width="wrap_content"
-                            android:layout_height="wrap_content"
-                            android:backgroundTint="@color/skyBlue"
-                            android:text="@string/denteeth" />
-
-
-                    </com.google.android.material.chip.ChipGroup>
-
-                </HorizontalScrollView>
 
                 <TextView
                     android:id="@+id/txtvAllDocs"
@@ -197,8 +140,8 @@
 
 
                     android:textSize="24sp"
-                    app:layout_constraintStart_toStartOf="@id/horizontalScrollV"
-                    app:layout_constraintTop_toBottomOf="@id/horizontalScrollV" />
+                    app:layout_constraintStart_toStartOf="@id/rvCategory"
+                    app:layout_constraintTop_toBottomOf="@id/rvCategory" />
 
                 <TextView
                     android:id="@+id/txtvSeeAll"

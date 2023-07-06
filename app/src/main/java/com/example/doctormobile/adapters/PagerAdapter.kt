@@ -1,12 +1,24 @@
 package com.example.doctormobile.adapters
 
+import android.util.Log
 import android.view.LayoutInflater
 import android.view.ViewGroup
 import androidx.recyclerview.widget.RecyclerView
+import com.bumptech.glide.Glide
 import com.example.doctormobile.databinding.PagerLayoutBinding
+import com.example.doctormobile.model.Slider
 
-class PagerAdapter : RecyclerView.Adapter<PagerAdapter.PagerHolder>() {
-    class PagerHolder(binding: PagerLayoutBinding) : RecyclerView.ViewHolder(binding.root) {
+class PagerAdapter(val sliders: List<Slider>?) : RecyclerView.Adapter<PagerAdapter.PagerHolder>() {
+    class PagerHolder(val binding: PagerLayoutBinding) : RecyclerView.ViewHolder(binding.root) {
+        fun bind(slider: Slider?) {
+            Log.d("data", slider.toString())
+            binding.slider = slider
+
+            Glide.with(binding.root)
+                .load(slider?.image)
+                .into(binding.imgDoctorPager)
+            binding.imgDoctorPager
+        }
 
     }
 
@@ -21,10 +33,10 @@ class PagerAdapter : RecyclerView.Adapter<PagerAdapter.PagerHolder>() {
     }
 
     override fun getItemCount(): Int {
-        return 3
+        return sliders?.size ?: 0
     }
 
     override fun onBindViewHolder(holder: PagerHolder, position: Int) {
-
+        holder.bind(sliders?.get(position))
     }
 }

@@ -58,7 +58,7 @@
                     android:layout_height="wrap_content"
                     android:layout_marginTop="24dp"
                     android:fontFamily="@font/averia_sans_libre_bold"
-                    android:text="Doctor Chanaling Payment Method"
+                    android:text="@string/doctor_chanaling_payment_method"
                     android:textSize="20sp"
                     app:layout_constraintEnd_toEndOf="parent"
                     app:layout_constraintStart_toStartOf="parent"
@@ -87,7 +87,7 @@
                         android:button="@android:color/transparent"
                         android:fontFamily="@font/averia_sans_libre_bold"
                         android:gravity="center"
-                        android:text="Card Payment" />
+                        android:text="@string/card_payment" />
 
                     <RadioButton
                         android:id="@+id/btnCashPayment"
@@ -99,7 +99,7 @@
                         android:button="@android:color/transparent"
                         android:fontFamily="@font/averia_sans_libre_bold"
                         android:gravity="center"
-                        android:text="Cash Payment" />
+                        android:text="@string/cash_payment" />
                 </RadioGroup>
 
                 <TextView
@@ -107,7 +107,7 @@
                     android:layout_width="0dp"
                     android:layout_height="wrap_content"
                     android:fontFamily="@font/averia_sans_libre_bold"
-                    android:text="Card Number"
+                    android:text="@string/card_number"
                     android:textSize="18sp"
                     app:layout_constraintEnd_toEndOf="@+id/rgChoosePaymentMode"
                     app:layout_constraintStart_toStartOf="@+id/rgChoosePaymentMode"
@@ -131,7 +131,7 @@
                     android:layout_height="wrap_content"
                     android:layout_marginTop="25dp"
                     android:fontFamily="@font/averia_sans_libre_bold"
-                    android:text="Expiry Date"
+                    android:text="@string/expiry_date"
                     android:textSize="18sp"
                     app:layout_constraintStart_toStartOf="@+id/etxtCardNumber"
                     app:layout_constraintTop_toBottomOf="@+id/etxtCardNumber" />
@@ -141,7 +141,7 @@
                     android:layout_width="wrap_content"
                     android:layout_height="wrap_content"
                     android:fontFamily="@font/averia_sans_libre_bold"
-                    android:text="CVV"
+                    android:text="@string/cvv"
                     android:textSize="18sp"
                     app:layout_constraintStart_toEndOf="@+id/etxtExpiryDate"
                     app:layout_constraintTop_toTopOf="@+id/txtvExpiryDate" />
@@ -175,7 +175,7 @@
                     android:layout_height="wrap_content"
                     android:layout_marginTop="25dp"
                     android:fontFamily="@font/averia_sans_libre_bold"
-                    android:text="Name"
+                    android:text="@string/name"
                     android:textSize="18sp"
                     app:layout_constraintStart_toStartOf="@+id/etxtExpiryDate"
                     app:layout_constraintTop_toBottomOf="@+id/etxtExpiryDate" />
@@ -198,8 +198,8 @@
                     android:layout_width="0dp"
                     android:layout_height="wrap_content"
                     android:layout_marginTop="42dp"
-                    android:text="Pay Now"
-                    android:textSize="22dp"
+                    android:text="@string/pay_now"
+                    android:textSize="22sp"
                     app:layout_constraintEnd_toEndOf="@id/etxtName"
                     app:layout_constraintStart_toStartOf="@id/etxtName"
                     app:layout_constraintTop_toBottomOf="@id/etxtName"

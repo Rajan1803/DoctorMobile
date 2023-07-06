@@ -91,7 +91,7 @@
                 android:layout_height="wrap_content"
                 android:layout_marginEnd="8dp"
                 android:drawableStart="@drawable/star_icon"
-                android:text="@string/_5_0"
+                android:text="@{doctor.rating}"
 
                 app:fontFamily="@font/averia_sans_libre"
                 app:layout_constraintBottom_toBottomOf="@+id/btnBook"

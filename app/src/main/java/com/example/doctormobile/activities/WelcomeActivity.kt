@@ -2,17 +2,26 @@ package com.example.doctormobile.activities
 
 import android.content.Intent
 import android.os.Bundle
+import android.util.Log
 import android.view.View
 import android.widget.Toast
 import androidx.appcompat.app.AppCompatActivity
 import androidx.core.splashscreen.SplashScreen.Companion.installSplashScreen
 import androidx.core.widget.addTextChangedListener
+import androidx.lifecycle.ViewModelProvider
 import com.example.doctormobile.R
 import com.example.doctormobile.databinding.ActivityWelcomeBinding
+import com.example.doctormobile.helpers.LoginVMFactory
 import com.example.doctormobile.helpers.Utility
+import com.example.doctormobile.model.LoginResponse
+import com.example.doctormobile.repository.LoginRepository
+import com.example.doctormobile.viewmodel.LoginViewModel
 
 class WelcomeActivity : AppCompatActivity() {
+
     lateinit var binding: ActivityWelcomeBinding
+
+
     override fun onCreate(savedInstanceState: Bundle?) {
         super.onCreate(savedInstanceState)
         installSplashScreen()
@@ -25,31 +34,20 @@ class WelcomeActivity : AppCompatActivity() {
      * setting views
      */
     private fun initViews() {
+
         binding.toolbar.toolbarTitle.text = getString(R.string.welcome)
         binding.toolbar.imgBack.visibility = View.GONE
 
         binding.etxtEmail.addTextChangedListener {
-            if (!Utility.isEmailValid(binding.etxtEmail.text.toString())) {
-                binding.txtinputLayoutEmail.error = getString(R.string.invalidEmailMessage)
-            } else {
-                binding.txtinputLayoutEmail.error = null
-            }
         }
 
         binding.etxtPassword.addTextChangedListener { pass ->
-            if (!Utility.isValidPassword(pass.toString())) {
-                binding.txtinputLayout.error = getString(R.string.weakPasswordMessage)
-            } else {
-                binding.txtinputLayout.error = null
-            }
         }
 
         binding.btnSignIn.setOnClickListener {
-            if (!allFieldsValid()) {
-                Toast.makeText(this, getString(R.string.fillAllFields), Toast.LENGTH_SHORT).show()
-            } else {
-                val intent = Intent(this, DoctorHomeActivity::class.java)
-                startActivity(intent)
+            val loginViewModel = ViewModelProvider(this,LoginVMFactory(LoginRepository())).get(LoginViewModel::class.java)
+            loginViewModel.postLoginData(binding.etxtEmail.text?.toString(),binding.etxtPassword.text?.toString()){ loginResponse ->
+                signIn(loginResponse)
             }
         }
 
@@ -57,12 +55,21 @@ class WelcomeActivity : AppCompatActivity() {
             val intent = Intent(this, SignUpActivity::class.java)
             startActivity(intent)
         }
+
+        binding.txtvOR.setOnClickListener {
+            val intent = Intent(this, DoctorHomeActivity::class.java)
+            startActivity(intent)
+        }
+
     }
 
-     /**
-     * checking if all fields are properly filed
-     */
-    private fun allFieldsValid(): Boolean {
-        return (binding.txtinputLayout.error == null && binding.txtinputLayoutEmail.error == null && binding.etxtEmail.text?.isNotEmpty() ?: false && binding.etxtPassword.text?.isNotEmpty() ?: false)
+    private fun signIn(loginResponse: LoginResponse?) {
+            if (loginResponse == null) {
+                Toast.makeText(this, "Enter Valid Username and Password", Toast.LENGTH_SHORT).show()
+            } else {
+                val intent = Intent(this, DoctorHomeActivity::class.java)
+                startActivity(intent)
+            }
     }
+
 }

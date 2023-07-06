@@ -9,7 +9,6 @@ import androidx.appcompat.widget.SearchView
 import androidx.recyclerview.widget.LinearLayoutManager
 import androidx.recyclerview.widget.RecyclerView
 import androidx.recyclerview.widget.RecyclerView.ItemDecoration
-import com.example.doctormobile.R
 import com.example.doctormobile.adapters.DoctorAdapter
 import com.example.doctormobile.databinding.ActivityAllDoctorsBinding
 import com.example.doctormobile.helpers.OnButtonClick
@@ -17,6 +16,7 @@ import com.example.doctormobile.model.Doctor
 
 class AllDoctorsActivity : AppCompatActivity(), OnButtonClick {
     lateinit var binding: ActivityAllDoctorsBinding
+    lateinit var allDoctors: ArrayList<Doctor>
     lateinit var adapter: DoctorAdapter
     lateinit var visibleDoctors: ArrayList<Doctor>
     override fun onCreate(savedInstanceState: Bundle?) {
@@ -31,11 +31,15 @@ class AllDoctorsActivity : AppCompatActivity(), OnButtonClick {
      */
     private fun initViews() {
 
-        binding.toolbar.toolbarTitle.text = getString(R.string.all_doctors)
+        val docs = intent.getParcelableArrayListExtra<Doctor>("doctors")
+
+        allDoctors = docs as ArrayList<Doctor>
+        visibleDoctors = allDoctors
+        binding.toolbar.toolbarTitle.text = docs.first().type ?: ""
         binding.toolbar.imgBack.setOnClickListener {
             onBackPressedDispatcher.onBackPressed()
         }
-        visibleDoctors = Doctor.doctors
+//        visibleDoctors = Doctor.doctors
         binding.rVDoctors.layoutManager = LinearLayoutManager(this)
         adapter = DoctorAdapter(visibleDoctors)
         adapter.delegate = this
@@ -46,11 +50,10 @@ class AllDoctorsActivity : AppCompatActivity(), OnButtonClick {
             }
 
             override fun onQueryTextChange(newText: String?): Boolean {
-                visibleDoctors = Doctor.doctors.filter {
-                    it.name.lowercase().contains(newText?.lowercase() ?: "")
+                visibleDoctors = allDoctors.filter {
+                    it.name?.lowercase()?.contains(newText?.lowercase() ?: "") ?: false
                 } as ArrayList<Doctor>
-                adapter.visibleData = visibleDoctors
-                adapter.notifyDataSetChanged()
+                adapter.submitList(visibleDoctors)
                 return false
             }
         })
@@ -69,16 +72,16 @@ class AllDoctorsActivity : AppCompatActivity(), OnButtonClick {
                 }
             }
         }
-        binding.rVDoctors.addItemDecoration(itemDecoration)
 
+        binding.rVDoctors.addItemDecoration(itemDecoration)
     }
 
     /**
      * on click of submit button from recycler view item
      */
-    override fun onBtnSubmitClick(position: Int) {
+    override fun onBtnSubmitClick(doctor: Doctor?) {
         val intent = Intent(this, DoctorInfoActivity::class.java)
-        intent.putExtra("position", position)
+        intent.putExtra("doctor", doctor)
         startActivity(intent)
     }
 }

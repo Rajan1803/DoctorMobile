@@ -84,5 +84,12 @@
     <string name="message">Message</string>
     <string name="active_now">Active Now</string>
     <string name="messages">Messages</string>
+    <string name="cash_payment">Cash Payment</string>
+    <string name="card_payment">Card Payment</string>
+    <string name="doctor_chanaling_payment_method">Doctor Chanaling Payment Method</string>
+    <string name="card_number">Card Number</string>
+    <string name="cvv">CVV</string>
+    <string name="expiry_date">Expiry Date</string>
+    <string name="name">Name</string>
 
 </resources>

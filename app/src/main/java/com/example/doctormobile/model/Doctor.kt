@@ -1,33 +1,65 @@
 package com.example.doctormobile.model
 
-import android.accounts.AuthenticatorDescription
-import com.example.doctormobile.R
+import android.os.Parcel
+import android.os.Parcelable
+import com.google.gson.annotations.SerializedName
 
-class Doctor(val image: Int, val name: String, val description: String, val ratting: Float,
-             var isFavourite: Boolean) {
+data class Doctor(
 
-    companion object {
-        val doctors = arrayListOf<Doctor>(
-            Doctor(R.drawable.doctor,"Dr.Pawan",
-            "Jorem ipsum dolor, consectetur adipiscing elit. Nunc v libero et velit interdum, ac  mattis.",5.0f,true),
-            Doctor(R.drawable.doctor_second,"Dr.Wanitha",
-            "Jorem ipsum dolor, consectetur adipiscing elit. Nunc v libero et velit interdum, ac  mattis.",5.0f,true)
-            , Doctor(R.drawable.doctor_third,"Dr.Udara",
-            "Jorem ipsum dolor, consectetur adipiscing elit. Nunc v libero et velit interdum, ac  mattis.",5.0f,true),
-            Doctor(R.drawable.doctor_fourth,"Dr.Pawan",
-                "Jorem ipsum dolor, consectetur adipiscing elit. Nunc v libero et velit interdum, ac  mattis.",5.0f,true),
-            Doctor(R.drawable.doctor,"Dr.Wanitha",
-                "Jorem ipsum dolor, consectetur adipiscing elit. Nunc v libero et velit interdum, ac  mattis.",5.0f,true)
-            , Doctor(R.drawable.doctor_second,"Dr.Udara",
-                "Jorem ipsum dolor, consectetur adipiscing elit. Nunc v libero et velit interdum, ac  mattis.",5.0f,true),
-            Doctor(R.drawable.doctor_third,"Dr.Pawan",
-                "Jorem ipsum dolor, consectetur adipiscing elit. Nunc v libero et velit interdum, ac  mattis.",5.0f,true),
-            Doctor(R.drawable.doctor_fourth,"Dr.Wanitha",
-                "Jorem ipsum dolor, consectetur adipiscing elit. Nunc v libero et velit interdum, ac  mattis.",5.0f,true)
-            , Doctor(R.drawable.doctor,"Dr.Udara",
-                "Jorem ipsum dolor, consectetur adipiscing elit. Nunc v libero et velit interdum, ac  mattis.",5.0f,true)
-        )
+    @SerializedName("data_id")
+    val dataId: String?,
 
+    @SerializedName("desc")
+    val description: String?,
+
+    @SerializedName("id")
+    val id: String?,
+
+    @SerializedName("image")
+    val image: String?,
+
+    @SerializedName("name")
+    val name: String?,
+
+    @SerializedName("rating")
+    val rating: String?,
+
+    @SerializedName("type")
+    val type: String?
+) : Parcelable {
+    constructor(parcel: Parcel) : this(
+        parcel.readString(),
+        parcel.readString(),
+        parcel.readString(),
+        parcel.readString(),
+        parcel.readString(),
+        parcel.readString(),
+        parcel.readString()
+    ) {
+    }
+
+    override fun writeToParcel(parcel: Parcel, flags: Int) {
+        parcel.writeString(dataId)
+        parcel.writeString(description)
+        parcel.writeString(id)
+        parcel.writeString(image)
+        parcel.writeString(name)
+        parcel.writeString(rating)
+        parcel.writeString(type)
+    }
+
+    override fun describeContents(): Int {
+        return 0
+    }
+
+    companion object CREATOR : Parcelable.Creator<Doctor> {
+        override fun createFromParcel(parcel: Parcel): Doctor {
+            return Doctor(parcel)
+        }
+
+        override fun newArray(size: Int): Array<Doctor?> {
+            return arrayOfNulls(size)
+        }
     }
 
 }

@@ -62,7 +62,7 @@ class ChatFragment : Fragment() {
         }
 
         binding.rvStatus.addItemDecoration(itemDecoration)
-        binding.rvStatus.layoutManager = LinearLayoutManager(activity,LinearLayoutManager.HORIZONTAL,true)
+        binding.rvStatus.layoutManager = LinearLayoutManager(activity,LinearLayoutManager.HORIZONTAL,false)
         binding.rvStatus.adapter = StatusPagerAdapter()
 
         binding.rvMessages.layoutManager = LinearLayoutManager(activity)

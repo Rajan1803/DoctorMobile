@@ -68,10 +68,6 @@ class ProfileFragment : Fragment() {
         val filesDir = activity?.applicationContext?.filesDir
         val file = File(filesDir, "image.png")
 
-        val inputStream = activity?.contentResolver?.openInputStream(imageUri)
-        val outputStream = FileOutputStream(file)
-        inputStream?.copyTo(outputStream)
-
         val requestFile: RequestBody =
             RequestBody.create(MediaType.parse("multipart/form-data"), file)
         val body = MultipartBody.Part.createFormData("image", file.name, requestFile)
@@ -87,7 +83,6 @@ class ProfileFragment : Fragment() {
                 ) {
                     print(response)
                 }
-
                 override fun onFailure(call: Call<UploadedImage>, t: Throwable) {
                     print(t)
                 }

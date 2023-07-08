@@ -10,4 +10,5 @@ interface LoginApiService {
 
     @POST("/auth/login")
     fun postLogin(@Body loginCredentials: LoginCredentials): Call<LoginResponse>
+
 }

@@ -5,18 +5,16 @@ import com.example.doctormobile.network.ApiClient
 import retrofit2.Call
 import retrofit2.Callback
 import retrofit2.Response
-import java.nio.channels.CompletionHandler
 
 class DoctorDataRepository {
 
 
-    fun callApi(completionHandler: (Hospital?) -> Unit){
+    fun callApi(completionHandler: (Hospital?) -> Unit) {
         val hospitalApiService = ApiClient.hospitalApiService
         val call = hospitalApiService.getDoctorData()
-        call.enqueue(object: Callback<Hospital> {
+        call.enqueue(object : Callback<Hospital> {
             override fun onResponse(call: Call<Hospital>, response: Response<Hospital>) {
                 if (response.body() != null) {
-//                    hospitalLiveData.postValue(response.body())
                     completionHandler(response.body())
                 }
             }

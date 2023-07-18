@@ -23,7 +23,6 @@ class SignUpActivity : AppCompatActivity() {
      * setting views
      */
     private fun initViews() {
-
         binding.toolbar.toolbarTitle.text = getString(R.string.create_new_account)
         binding.toolbar.imgBack.visibility = View.GONE
         binding.txtvToSignIn.setOnClickListener {

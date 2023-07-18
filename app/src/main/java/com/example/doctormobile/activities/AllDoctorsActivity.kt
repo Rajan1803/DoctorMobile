@@ -30,7 +30,6 @@ class AllDoctorsActivity : AppCompatActivity(), OnButtonClick {
      * setting views
      */
     private fun initViews() {
-
         val docs = intent.getParcelableArrayListExtra<Doctor>("doctors")
 
         allDoctors = docs as ArrayList<Doctor>

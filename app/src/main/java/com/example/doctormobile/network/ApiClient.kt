@@ -4,7 +4,6 @@ import okhttp3.OkHttpClient
 import okhttp3.logging.HttpLoggingInterceptor
 import retrofit2.Retrofit
 import retrofit2.converter.gson.GsonConverterFactory
-import retrofit2.create
 
 object ApiClient {
 
@@ -34,7 +33,7 @@ object ApiClient {
             .create(LoginApiService::class.java)
     }
 
-    val uploadImage: UploadService by lazy {
+    val uploadService: UploadService by lazy {
         var intercepter = HttpLoggingInterceptor()
         intercepter.setLevel(HttpLoggingInterceptor.Level.BODY)
 

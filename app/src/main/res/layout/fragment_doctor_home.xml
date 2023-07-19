@@ -53,8 +53,6 @@
                     app:layout_constraintBottom_toBottomOf="@id/txtvProfile"
                     app:layout_constraintEnd_toEndOf="parent"
                     app:layout_constraintStart_toEndOf="@id/txtvProfile"
-
-
                     app:layout_constraintTop_toTopOf="@id/txtvProfile" />
 
                 <androidx.appcompat.widget.SearchView

@@ -1,6 +1,5 @@
 package com.example.doctormobile.adapters
 
-import android.util.Log
 import android.view.LayoutInflater
 import android.view.ViewGroup
 import androidx.recyclerview.widget.RecyclerView
@@ -11,15 +10,11 @@ import com.example.doctormobile.model.Slider
 class PagerAdapter(val sliders: List<Slider>?) : RecyclerView.Adapter<PagerAdapter.PagerHolder>() {
     class PagerHolder(val binding: PagerLayoutBinding) : RecyclerView.ViewHolder(binding.root) {
         fun bind(slider: Slider?) {
-            Log.d("data", slider.toString())
             binding.slider = slider
-
             Glide.with(binding.root)
                 .load(slider?.image)
                 .into(binding.imgDoctorPager)
-            binding.imgDoctorPager
         }
-
     }
 
     override fun onCreateViewHolder(parent: ViewGroup, viewType: Int): PagerHolder {

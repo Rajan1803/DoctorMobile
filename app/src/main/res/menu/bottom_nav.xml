@@ -10,5 +10,4 @@
     <item android:id="@+id/profile"
         android:title="" android:icon="@drawable/nav_profile"/>
 
-
 </menu>

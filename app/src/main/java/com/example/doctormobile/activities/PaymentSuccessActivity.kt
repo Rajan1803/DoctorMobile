@@ -12,15 +12,11 @@ class PaymentSuccessActivity : AppCompatActivity() {
         binding = ActivityPaymentSuccessBinding.inflate(layoutInflater)
         setContentView(binding.root)
         initViews()
-
     }
 
-    /**
-     * setting views
-     */
     private fun initViews() {
         binding.btnBack.setOnClickListener {
-            val intent = Intent(this,DoctorHomeActivity::class.java)
+            val intent = Intent(this, DoctorHomeActivity::class.java)
             intent.addFlags(Intent.FLAG_ACTIVITY_CLEAR_TOP)
             startActivity(intent)
             finish()

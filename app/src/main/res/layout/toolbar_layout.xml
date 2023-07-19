@@ -3,37 +3,31 @@
 <layout xmlns:android="http://schemas.android.com/apk/res/android"
     xmlns:app="http://schemas.android.com/apk/res-auto">
 
-    <data>
-
-    </data>
-
     <androidx.appcompat.widget.Toolbar
         android:id="@+id/toolbar"
-        android:minHeight="?attr/actionBarSize"
         android:layout_width="match_parent"
         android:layout_height="wrap_content"
-        app:titleTextColor="@color/skyBlue"
-        android:background="@android:color/transparent">
+        android:background="@android:color/transparent"
+        android:minHeight="?attr/actionBarSize"
+        app:titleTextColor="@color/skyBlue">
 
         <ImageView
             android:id="@+id/imgBack"
             android:layout_width="wrap_content"
             android:layout_height="wrap_content"
             android:src="@drawable/back_icon"
-
-
-            />
+            android:contentDescription="@string/back_image" />
 
         <TextView
-
             android:id="@+id/toolbarTitle"
+            style="@style/TextAppearance.AppCompat.Widget.ActionBar.Title"
             android:layout_width="wrap_content"
             android:layout_height="wrap_content"
-            android:text="Toolbar Title"
-            android:textSize="26sp"
+            android:layout_gravity="center"
+            android:text="@string/toolbar_title"
             android:textColor="@color/skyBlue"
-            style="@style/TextAppearance.AppCompat.Widget.ActionBar.Title"
-            android:layout_gravity="center" />
+            android:textSize="26sp" />
 
     </androidx.appcompat.widget.Toolbar>
+
 </layout>

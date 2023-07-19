@@ -31,18 +31,17 @@ class NotificationActivity : AppCompatActivity() {
         }
         val itemDecoration = object : ItemDecoration() {
             override fun getItemOffsets(
-                outRect: Rect,
-                view: View,
-                parent: RecyclerView,
-                state: RecyclerView.State
+                outRect: Rect, view: View, parent: RecyclerView, state: RecyclerView.State
             ) {
                 super.getItemOffsets(outRect, view, parent, state)
                 outRect.top = 10
                 outRect.bottom = 10
             }
         }
-        binding.rvNotification.addItemDecoration(itemDecoration)
-        binding.rvNotification.layoutManager = LinearLayoutManager(this)
-        binding.rvNotification.adapter = NotificationAdapter()
+        binding.rvNotification.apply {
+            addItemDecoration(itemDecoration)
+            layoutManager = LinearLayoutManager(this@NotificationActivity)
+            adapter = NotificationAdapter()
+        }
     }
 }

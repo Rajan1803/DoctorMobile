@@ -5,29 +5,24 @@ import android.view.LayoutInflater
 import android.view.ViewGroup
 import androidx.recyclerview.widget.RecyclerView
 import com.bumptech.glide.Glide
-import com.example.doctormobile.R
 import com.example.doctormobile.databinding.RecyclerDoctorBinding
 import com.example.doctormobile.helpers.OnButtonClick
 import com.example.doctormobile.model.Doctor
 
 class DoctorAdapter(var visibleData: List<Doctor>?) :
     RecyclerView.Adapter<DoctorAdapter.DoctorHolder>() {
+
     var delegate: OnButtonClick? = null
 
     class DoctorHolder(val binding: RecyclerDoctorBinding) : RecyclerView.ViewHolder(binding.root) {
-
         @SuppressLint("ResourceAsColor")
         fun bind(doctor: Doctor?) {
-
             if (doctor != null) {
                 binding.doctor = doctor
                 Glide.with(binding.root)
                     .load(doctor.image)
                     .into(binding.imgDoctor)
             }
-//            if (doctor.isFavourite) binding.imgFavourite.setImageResource(R.drawable.favourited) else binding.imgFavourite.setImageResource(
-//                R.drawable.favourite
-//            )
         }
     }
 
@@ -39,18 +34,9 @@ class DoctorAdapter(var visibleData: List<Doctor>?) :
                 false
             )
         )
-
-//        holder.binding.imgFavourite.setOnClickListener {
-//            Doctor.doctors[holder.adapterPosition].isFavourite =
-//                !Doctor.doctors[holder.adapterPosition].isFavourite
-//            notifyItemChanged(holder.adapterPosition)
-//        }
-
         holder.binding.btnBook.setOnClickListener {
             delegate?.onBtnSubmitClick(visibleData?.get(holder.adapterPosition))
-
         }
-
         return holder
     }
 
@@ -62,6 +48,7 @@ class DoctorAdapter(var visibleData: List<Doctor>?) :
         holder.bind(visibleData?.get(position))
     }
 
+    @SuppressLint("NotifyDataSetChanged")
     fun submitList(visibleData: List<Doctor>?) {
         this.visibleData = visibleData
         notifyDataSetChanged()

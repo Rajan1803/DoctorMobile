@@ -9,13 +9,10 @@ import com.example.doctormobile.model.Notification
 class NotificationAdapter : RecyclerView.Adapter<NotificationAdapter.NotificationHolder>() {
     class NotificationHolder(val binding: RecyclerNotificationBinding) :
         RecyclerView.ViewHolder(binding.root) {
-
         fun bind(notification: Notification) {
             binding.notification = notification
             binding.imgNotificationIcon.setImageResource(notification.image)
-
         }
-
     }
 
     override fun onCreateViewHolder(parent: ViewGroup, viewType: Int): NotificationHolder {
@@ -24,7 +21,6 @@ class NotificationAdapter : RecyclerView.Adapter<NotificationAdapter.Notificatio
                 LayoutInflater.from(parent.context), parent, false
             )
         )
-
     }
 
     override fun getItemCount(): Int {

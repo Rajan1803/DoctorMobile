@@ -7,14 +7,20 @@ import com.example.doctormobile.databinding.RecyclerStatusBinding
 import com.example.doctormobile.model.Message
 
 class StatusPagerAdapter : RecyclerView.Adapter<StatusPagerAdapter.StatusHolder>() {
-    class StatusHolder(val binding: RecyclerStatusBinding): RecyclerView.ViewHolder(binding.root) {
+    class StatusHolder(val binding: RecyclerStatusBinding) : RecyclerView.ViewHolder(binding.root) {
         fun bind(message: Message) {
             binding.imgStatus.setImageResource(message.image)
         }
     }
 
     override fun onCreateViewHolder(parent: ViewGroup, viewType: Int): StatusHolder {
-        return StatusHolder(RecyclerStatusBinding.inflate(LayoutInflater.from(parent.context),parent,false))
+        return StatusHolder(
+            RecyclerStatusBinding.inflate(
+                LayoutInflater.from(parent.context),
+                parent,
+                false
+            )
+        )
     }
 
     override fun getItemCount(): Int {

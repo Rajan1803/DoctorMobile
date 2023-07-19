@@ -3,7 +3,6 @@ package com.example.doctormobile.fragments
 import android.content.Intent
 import android.graphics.Rect
 import android.os.Bundle
-import android.util.Log
 import android.view.LayoutInflater
 import android.view.View
 import android.view.ViewGroup
@@ -30,43 +29,30 @@ class DoctorHomeFragment : Fragment() {
     lateinit var binding: FragmentDoctorHomeBinding
     override fun onCreateView(
         inflater: LayoutInflater, container: ViewGroup?, savedInstanceState: Bundle?
-    ): View? {
+    ): View {
         binding = FragmentDoctorHomeBinding.inflate(layoutInflater)
         initViews()
         return binding.root
     }
 
-    /**
-     * setting Views
-     */
     fun initViews() {
         activity?.let { activity ->
-            val viewModel = ViewModelProvider(activity).get( DoctorViewModel::class.java)
+            val viewModel = ViewModelProvider(activity)[DoctorViewModel::class.java]
             viewModel.callApi()
             viewModel.hospitalData.observe(activity) { data ->
                 binding.viewPager2.adapter = PagerAdapter(data.slider)
-                TabLayoutMediator(binding.tablayout, binding.viewPager2) { tab, position ->
+                TabLayoutMediator(binding.tablayout, binding.viewPager2) { _, _ ->
                 }.attach()
-
-                    categoryAdapter.submitList(category = data.categories)
-
+                categoryAdapter.submitList(category = data.categories)
                 data.categories.forEach {
                     allDoctors.addAll(it.doctors)
                 }
-
-                    doctorAdapter.submitList(allDoctors)
-
-
-                Log.d("data", "initViews: $data")
+                doctorAdapter.submitList(allDoctors)
             }
         }
-
-        val categoryItemDecoration = object: ItemDecoration() {
+        val categoryItemDecoration = object : ItemDecoration() {
             override fun getItemOffsets(
-                outRect: Rect,
-                view: View,
-                parent: RecyclerView,
-                state: RecyclerView.State
+                outRect: Rect, view: View, parent: RecyclerView, state: RecyclerView.State
             ) {
                 super.getItemOffsets(outRect, view, parent, state)
                 outRect.apply {
@@ -76,23 +62,23 @@ class DoctorHomeFragment : Fragment() {
             }
         }
 
-        binding.rvCategory.addItemDecoration(categoryItemDecoration)
-        binding.rvCategory.layoutManager = LinearLayoutManager(activity,LinearLayoutManager.HORIZONTAL,false)
-
-        binding.rvCategory.adapter = categoryAdapter
-
-
-
+        binding.rvCategory.apply {
+            addItemDecoration(categoryItemDecoration)
+            layoutManager = LinearLayoutManager(activity, LinearLayoutManager.HORIZONTAL, false)
+            adapter = categoryAdapter
+        }
         binding.txtvSeeAll.setOnClickListener {
             val intent = Intent(activity, AllDoctorsActivity::class.java)
-            intent.putExtra("doctors",allDoctors)
+            intent.putExtra("doctors", allDoctors)
             startActivity(intent)
         }
 
-        binding.viewPager2.adapter = PagerAdapter(null)
-        binding.rvHomeDoctors.layoutManager = LinearLayoutManager(activity)
-
-        val itemDecoration = object : RecyclerView.ItemDecoration() {
+        binding.apply {
+            viewPager2.adapter = PagerAdapter(null)
+            rvHomeDoctors.layoutManager = LinearLayoutManager(activity)
+        }
+        //TODO create class
+        val itemDecoration = object : ItemDecoration() {
             override fun getItemOffsets(
                 outRect: Rect, view: View, parent: RecyclerView, state: RecyclerView.State
             ) {
@@ -103,17 +89,15 @@ class DoctorHomeFragment : Fragment() {
                 }
             }
         }
-        binding.rvHomeDoctors.addItemDecoration(itemDecoration)
-        binding.rvHomeDoctors.adapter = doctorAdapter
-
-        TabLayoutMediator(binding.tablayout, binding.viewPager2) { tab, position ->
+        binding.rvHomeDoctors.apply {
+            addItemDecoration(itemDecoration)
+            adapter = doctorAdapter
+        }
+        TabLayoutMediator(binding.tablayout, binding.viewPager2) { _, _ ->
         }.attach()
-
         binding.imgNotification.setOnClickListener {
             val intent = Intent(activity, NotificationActivity::class.java)
             startActivity(intent)
         }
-
     }
-
 }

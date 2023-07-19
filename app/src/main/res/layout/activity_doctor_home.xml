@@ -3,12 +3,7 @@
     xmlns:app="http://schemas.android.com/apk/res-auto"
     xmlns:tools="http://schemas.android.com/tools">
 
-    <data>
-
-    </data>
-
     <androidx.constraintlayout.widget.ConstraintLayout
-
         android:layout_width="match_parent"
         android:layout_height="match_parent"
         tools:context=".activities.DoctorHomeActivity">
@@ -17,31 +12,29 @@
             android:id="@+id/toolbar"
             layout="@layout/toolbar_layout"
             android:visibility="gone"
-
             app:layout_constraintTop_toTopOf="parent" />
 
         <androidx.fragment.app.FragmentContainerView
             android:id="@+id/fragmentContainer"
             android:layout_width="match_parent"
             android:layout_height="0dp"
-            app:layout_goneMarginTop="16dp"
             android:layout_marginTop="8dp"
             app:layout_constraintBottom_toTopOf="@+id/bottonNav"
             app:layout_constraintEnd_toEndOf="parent"
             app:layout_constraintStart_toStartOf="parent"
             app:layout_constraintTop_toBottomOf="@id/toolbar"
-             />
+            app:layout_goneMarginTop="16dp" />
 
         <com.google.android.material.bottomnavigation.BottomNavigationView
             android:id="@+id/bottonNav"
             android:layout_width="match_parent"
             android:layout_height="wrap_content"
-            app:labelVisibilityMode="unlabeled"
-            app:itemIconTint="@color/skyBlue"
             app:backgroundTint="@color/white"
-            app:menu="@menu/bottom_nav"
+            app:itemIconTint="@color/skyBlue"
+            app:labelVisibilityMode="unlabeled"
             app:layout_constraintBottom_toBottomOf="parent"
-            app:layout_constraintStart_toStartOf="parent" />
+            app:layout_constraintStart_toStartOf="parent"
+            app:menu="@menu/bottom_nav" />
 
     </androidx.constraintlayout.widget.ConstraintLayout>
 </layout>

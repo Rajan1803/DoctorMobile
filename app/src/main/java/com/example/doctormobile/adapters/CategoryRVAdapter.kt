@@ -1,20 +1,21 @@
 package com.example.doctormobile.adapters
 
+import android.annotation.SuppressLint
 import android.content.Intent
 import android.view.LayoutInflater
 import android.view.ViewGroup
 import androidx.recyclerview.widget.RecyclerView
 import com.example.doctormobile.activities.AllDoctorsActivity
-import com.example.doctormobile.databinding.FragmentProfileBinding
 import com.example.doctormobile.databinding.RecyclerCategoryItemBinding
-import com.example.doctormobile.databinding.RecyclerDoctorBinding
 import com.example.doctormobile.model.Category
 import com.example.doctormobile.model.Doctor
 
-class CategoryRVAdapter(): RecyclerView.Adapter<CategoryRVAdapter.CategoryViewHolder>() {
+class CategoryRVAdapter : RecyclerView.Adapter<CategoryRVAdapter.CategoryViewHolder>() {
+
     var category: List<Category>? = null
 
-    class CategoryViewHolder(val binding: RecyclerCategoryItemBinding) : RecyclerView.ViewHolder(binding.root) {
+    class CategoryViewHolder(val binding: RecyclerCategoryItemBinding) :
+        RecyclerView.ViewHolder(binding.root) {
         fun bind(category: Category?) {
             binding.category = category
         }
@@ -22,13 +23,19 @@ class CategoryRVAdapter(): RecyclerView.Adapter<CategoryRVAdapter.CategoryViewHo
     }
 
     override fun onCreateViewHolder(parent: ViewGroup, viewType: Int): CategoryViewHolder {
-        val holder = CategoryRVAdapter.CategoryViewHolder(RecyclerCategoryItemBinding.inflate(LayoutInflater.from(parent.context),parent,false))
-
+        val holder = CategoryViewHolder(
+            RecyclerCategoryItemBinding.inflate(
+                LayoutInflater.from(parent.context),
+                parent,
+                false
+            )
+        )
         holder.binding.btnCategory.setOnClickListener {
-            val intent = Intent(parent.context,AllDoctorsActivity::class.java)
-            val doctors: ArrayList<Doctor>? = category?.get(holder.adapterPosition)?.doctors as ArrayList<Doctor>?
-            if ( doctors != null) {
-                intent.putExtra("doctors",doctors)
+            val intent = Intent(parent.context, AllDoctorsActivity::class.java)
+            val doctors: ArrayList<Doctor>? =
+                category?.get(holder.adapterPosition)?.doctors as ArrayList<Doctor>?
+            if (doctors != null) {
+                intent.putExtra("doctors", doctors)
                 parent.context.startActivity(intent)
             }
         }
@@ -43,7 +50,7 @@ class CategoryRVAdapter(): RecyclerView.Adapter<CategoryRVAdapter.CategoryViewHo
         holder.bind(category?.get(position))
     }
 
-
+    @SuppressLint("NotifyDataSetChanged")
     fun submitList(category: List<Category>?) {
         this.category = category
         notifyDataSetChanged()

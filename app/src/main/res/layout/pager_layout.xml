@@ -3,6 +3,7 @@
     xmlns:app="http://schemas.android.com/apk/res-auto">
 
     <data>
+
         <variable
             name="slider"
             type="com.example.doctormobile.model.Slider" />
@@ -11,56 +12,47 @@
     <androidx.cardview.widget.CardView
         android:layout_width="match_parent"
         android:layout_height="match_parent"
-        app:cardCornerRadius="20dp"
         android:backgroundTint="@color/skyBlue"
+        app:cardCornerRadius="20dp">
 
-
-        >
-    <androidx.constraintlayout.widget.ConstraintLayout
-        android:layout_width="wrap_content"
-        android:layout_height="wrap_content"
-        android:padding="16dp"
-        >
-
-        <TextView
-            android:id="@+id/txtvMedicalCenter"
+        <androidx.constraintlayout.widget.ConstraintLayout
             android:layout_width="wrap_content"
             android:layout_height="wrap_content"
-            android:fontFamily="@font/averia_sans_libre_bold"
+            android:padding="16dp">
 
-            android:text="@{slider.title}"
-            android:textSize="26sp"
-            app:layout_constraintStart_toStartOf="parent"
+            <TextView
+                android:id="@+id/txtvMedicalCenter"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:fontFamily="@font/averia_sans_libre_bold"
+                android:text="@{slider.title}"
+                android:textSize="26sp"
+                app:layout_constraintStart_toStartOf="parent"
+                app:layout_constraintTop_toTopOf="parent" />
 
+            <TextView
+                android:id="@+id/txtvPagerDescription"
+                android:layout_width="0dp"
+                android:layout_height="wrap_content"
+                android:layout_marginTop="14dp"
+                android:fontFamily="@font/averia_sans_libre"
+                android:text="@{slider.subTitle}"
+                android:textColor="@color/white"
+                app:layout_constraintEnd_toStartOf="@id/imgDoctor_pager"
+                app:layout_constraintStart_toStartOf="@id/txtvMedicalCenter"
+                app:layout_constraintTop_toBottomOf="@id/txtvMedicalCenter" />
 
-            app:layout_constraintTop_toTopOf="parent" />
+            <androidx.constraintlayout.utils.widget.ImageFilterView
+                android:id="@+id/imgDoctor_pager"
+                android:layout_width="250dp"
+                android:layout_height="200dp"
+                android:src="@drawable/pager_doctor"
+                app:layout_constraintEnd_toEndOf="parent"
+                app:layout_constraintStart_toEndOf="@id/txtvMedicalCenter"
+                app:layout_constraintTop_toTopOf="@id/txtvMedicalCenter" />
 
-        <TextView
-            android:id="@+id/txtvPagerDescription"
-            android:layout_width="0dp"
-            android:layout_height="wrap_content"
+        </androidx.constraintlayout.widget.ConstraintLayout>
 
-            android:layout_marginTop="14dp"
-            android:fontFamily="@font/averia_sans_libre"
-            android:text="@{slider.subTitle}"
-            android:textColor="@color/white"
-            app:layout_constraintEnd_toStartOf="@id/imgDoctor_pager"
-            app:layout_constraintStart_toStartOf="@id/txtvMedicalCenter"
-
-            app:layout_constraintTop_toBottomOf="@id/txtvMedicalCenter" />
-
-        <androidx.constraintlayout.utils.widget.ImageFilterView
-            android:id="@+id/imgDoctor_pager"
-            android:layout_width="250dp"
-            android:layout_height="200dp"
-            android:src="@drawable/pager_doctor"
-            app:layout_constraintStart_toEndOf="@id/txtvMedicalCenter"
-            app:layout_constraintTop_toTopOf="@id/txtvMedicalCenter"
-            app:layout_constraintEnd_toEndOf="parent"
-
-            />
-
-
-    </androidx.constraintlayout.widget.ConstraintLayout>
     </androidx.cardview.widget.CardView>
+
 </layout>

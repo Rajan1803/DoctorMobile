@@ -4,16 +4,14 @@ import okhttp3.OkHttpClient
 import okhttp3.logging.HttpLoggingInterceptor
 import retrofit2.Retrofit
 import retrofit2.converter.gson.GsonConverterFactory
-import retrofit2.create
 
 object ApiClient {
 
-
     var intercepter = HttpLoggingInterceptor().also {
-        it.setLevel(HttpLoggingInterceptor.Level.BODY)
+        it.level = HttpLoggingInterceptor.Level.BODY
     }
 
-    val client = OkHttpClient.Builder().addInterceptor(intercepter).build()
+    private val client: OkHttpClient = OkHttpClient.Builder().addInterceptor(intercepter).build()
 
     val hospitalApiService: ApiService by lazy {
         Retrofit.Builder()
@@ -34,9 +32,9 @@ object ApiClient {
             .create(LoginApiService::class.java)
     }
 
-    val uploadImage: UploadService by lazy {
+    val uploadService: UploadService by lazy {
         var intercepter = HttpLoggingInterceptor()
-        intercepter.setLevel(HttpLoggingInterceptor.Level.BODY)
+        intercepter.level = HttpLoggingInterceptor.Level.BODY
 
         val client = OkHttpClient.Builder().addInterceptor(intercepter).build()
 
@@ -55,15 +53,6 @@ object ApiClient {
             .client(client)
             .build()
             .create(DownloadApiService::class.java)
-    }
-
-    val putServiece: ApiService by lazy {
-        Retrofit.Builder()
-            .baseUrl("https://reqres.in/")
-            .addConverterFactory(GsonConverterFactory.create())
-            .client(client)
-            .build()
-            .create(ApiService::class.java)
     }
 
 }

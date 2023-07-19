@@ -4,6 +4,7 @@
     xmlns:tools="http://schemas.android.com/tools">
 
     <data>
+
         <variable
             name="doctor"
             type="com.example.doctormobile.model.Doctor" />
@@ -17,19 +18,17 @@
 
         <include
             android:id="@+id/toolbar"
-            layout="@layout/toolbar_layout"
+            layout="@layout/toolbar_layout" />
 
-
-            />
         <ImageView
             android:id="@+id/imgDoc"
             android:layout_width="138dp"
             android:layout_height="138dp"
-            app:layout_constraintStart_toStartOf="parent"
             android:layout_marginTop="70dp"
+            android:contentDescription="@string/doctor_picture"
+            app:layout_constraintStart_toStartOf="parent"
             app:layout_constraintTop_toTopOf="parent"
-            app:srcCompat="@drawable/doctorprofile"
-            android:contentDescription="@string/doctor_picture" />
+            app:srcCompat="@drawable/doctorprofile" />
 
         <TextView
             android:id="@+id/txtvDRName"
@@ -60,7 +59,7 @@
             android:layout_height="wrap_content"
             android:layout_marginTop="13dp"
             android:fontFamily="@font/averia_sans_libre_light"
-            android:text="@string/torem_ipsum_dolor_sit_amet_consectetur_adipiscing_elit"
+            android:text="@string/doctor_description"
             app:layout_constraintEnd_toEndOf="parent"
             app:layout_constraintStart_toStartOf="@+id/txtvDRCategory"
             app:layout_constraintTop_toBottomOf="@+id/txtvDRCategory" />
@@ -92,39 +91,39 @@
             android:id="@+id/imgbtnMessage"
             android:layout_width="wrap_content"
             android:layout_height="wrap_content"
-            android:padding="8dp"
             android:layout_margin="8dp"
             android:background="@android:color/transparent"
+            android:contentDescription="@string/chat"
+            android:padding="8dp"
             app:layout_constraintBottom_toBottomOf="@+id/imgbtnCall"
             app:layout_constraintEnd_toStartOf="@+id/imgbtnCall"
             app:layout_constraintTop_toTopOf="@+id/imgbtnCall"
-            app:srcCompat="@drawable/message_icon"
-            android:contentDescription="@string/chat" />
+            app:srcCompat="@drawable/message_icon" />
 
         <ImageButton
             android:id="@+id/imgbtnCall"
             android:layout_width="wrap_content"
             android:layout_height="wrap_content"
-            android:padding="8dp"
             android:layout_margin="8dp"
             android:background="@android:color/transparent"
+            android:contentDescription="@string/call"
+            android:padding="8dp"
             app:layout_constraintBottom_toBottomOf="@+id/imgbtnVCall"
             app:layout_constraintEnd_toStartOf="@+id/imgbtnVCall"
             app:layout_constraintTop_toTopOf="@id/imgDoc"
-            app:srcCompat="@drawable/call"
-            android:contentDescription="@string/call" />
+            app:srcCompat="@drawable/call" />
 
         <ImageButton
             android:id="@+id/imgbtnVCall"
             android:layout_width="wrap_content"
             android:layout_height="wrap_content"
-            android:padding="8dp"
-
             android:background="@android:color/transparent"
+
+            android:contentDescription="@string/video_call"
+            android:padding="8dp"
             app:layout_constraintEnd_toEndOf="parent"
             app:layout_constraintTop_toTopOf="@+id/imgbtnCall"
-            app:srcCompat="@drawable/videocall"
-            android:contentDescription="@string/video_call" />
+            app:srcCompat="@drawable/videocall" />
 
         <TextView
             android:id="@+id/txtvDetail"
@@ -143,7 +142,7 @@
             android:layout_height="wrap_content"
             android:layout_marginTop="16dp"
             android:fontFamily="@font/averia_sans_libre_light"
-            android:text="@string/worem_ipsum_dolor_sit_amet_consectetur_adipiscing_elit_nunc_vulputate_libero_et_velit_interdum_ac_aliquet_odio_mattis_class_aptent_taciti_sociosqu_ad_litora_torquent_per_conubia_nostra_per_inceptos_himenaeos_curabitur_tempus_urna_at_turpis_condimentum_lobortis_ut_commodo_efficitur_neque_ut_diam_quam_semper_iaculis_condimentum_ac_vestibulum_eu_nisl"
+            android:text="@string/description"
             android:textSize="16sp"
             app:layout_constraintEnd_toEndOf="parent"
             app:layout_constraintStart_toStartOf="@+id/txtvDetail"
@@ -176,28 +175,21 @@
             android:layout_width="0dp"
             android:layout_height="wrap_content"
             android:layout_marginTop="16dp"
-
-
             android:scrollbars="none"
             app:layout_constraintEnd_toEndOf="@id/txtvSeeAllText"
             app:layout_constraintStart_toStartOf="@id/txtvWorkingHours"
-
             app:layout_constraintTop_toBottomOf="@id/txtvSeeAllText">
 
             <com.google.android.material.chip.ChipGroup
                 android:layout_width="wrap_content"
                 android:layout_height="wrap_content"
-                app:singleSelection="true"
-
-                >
+                app:singleSelection="true">
 
                 <com.google.android.material.chip.Chip
                     style="@style/chipTime"
                     android:layout_width="wrap_content"
                     android:layout_height="wrap_content"
-                    android:text="@string/_10_00_am"
-
-                    />
+                    android:text="@string/_10_00_am" />
 
                 <com.google.android.material.chip.Chip
                     style="@style/chipTime"
@@ -209,94 +201,67 @@
                     style="@style/chipTime"
                     android:layout_width="wrap_content"
                     android:layout_height="wrap_content"
-                    android:text="@string/_12_00_am"
-
-                    />
+                    android:text="@string/_12_00_am" />
 
                 <com.google.android.material.chip.Chip
                     style="@style/chipTime"
                     android:layout_width="wrap_content"
                     android:layout_height="wrap_content"
-                    android:text="@string/_01_00_pm"
-
-                    />
+                    android:text="@string/_01_00_pm" />
 
                 <com.google.android.material.chip.Chip
                     style="@style/chipTime"
                     android:layout_width="wrap_content"
                     android:layout_height="wrap_content"
-                    android:text="@string/_02_00_pm"
-
-
-                    />
+                    android:text="@string/_02_00_pm" />
 
                 <com.google.android.material.chip.Chip
                     style="@style/chipTime"
                     android:layout_width="wrap_content"
                     android:layout_height="wrap_content"
-                    android:text="@string/_03_00_pm"
-
-                    />
+                    android:text="@string/_03_00_pm" />
 
                 <com.google.android.material.chip.Chip
                     style="@style/chipTime"
                     android:layout_width="wrap_content"
                     android:layout_height="wrap_content"
-                    android:text="@string/_04_00_pm"
-
-
-                    />
+                    android:text="@string/_04_00_pm" />
 
                 <com.google.android.material.chip.Chip
                     style="@style/chipTime"
                     android:layout_width="wrap_content"
                     android:layout_height="wrap_content"
-                    android:text="@string/_05_00_pm"
-
-                    />
+                    android:text="@string/_05_00_pm" />
 
                 <com.google.android.material.chip.Chip
                     style="@style/chipTime"
                     android:layout_width="wrap_content"
                     android:layout_height="wrap_content"
-                    android:text="@string/_06_00_pm"
-
-
-                    />
+                    android:text="@string/_06_00_pm" />
 
                 <com.google.android.material.chip.Chip
                     style="@style/chipTime"
                     android:layout_width="wrap_content"
                     android:layout_height="wrap_content"
-                    android:text="@string/_07_00_pm"
-
-                    />
+                    android:text="@string/_07_00_pm" />
 
                 <com.google.android.material.chip.Chip
                     style="@style/chipTime"
                     android:layout_width="wrap_content"
                     android:layout_height="wrap_content"
-                    android:text="@string/_08_00_pm"
-
-
-                    />
+                    android:text="@string/_08_00_pm" />
 
                 <com.google.android.material.chip.Chip
                     style="@style/chipTime"
                     android:layout_width="wrap_content"
                     android:layout_height="wrap_content"
-                    android:text="@string/_09_00_pm"
-
-                    />
+                    android:text="@string/_09_00_pm" />
 
                 <com.google.android.material.chip.Chip
                     style="@style/chipTime"
                     android:layout_width="wrap_content"
                     android:layout_height="wrap_content"
-                    android:text="@string/_10_00_pm"
-
-
-                    />
+                    android:text="@string/_10_00_pm" />
 
             </com.google.android.material.chip.ChipGroup>
 
@@ -330,32 +295,22 @@
             android:layout_width="0dp"
             android:layout_height="wrap_content"
             android:layout_marginTop="24dp"
-
-
             android:scrollbars="none"
             app:layout_constraintEnd_toEndOf="@id/txtvSeeAll"
             app:layout_constraintStart_toStartOf="@id/txtvDate"
-
             app:layout_constraintTop_toBottomOf="@id/txtvSeeAll">
 
             <com.google.android.material.chip.ChipGroup
                 android:layout_width="wrap_content"
                 android:layout_height="wrap_content"
-                app:singleSelection="true"
-
-                >
-
+                app:singleSelection="true">
 
                 <com.google.android.material.chip.Chip
                     style="@style/chipTime"
                     android:layout_width="wrap_content"
                     android:layout_height="wrap_content"
                     android:text="@string/sun_4"
-
-                    android:textSize="28sp"
-
-
-                    />
+                    android:textSize="28sp" />
 
                 <com.google.android.material.chip.Chip
                     style="@style/chipTime"
@@ -376,9 +331,7 @@
                     android:layout_width="wrap_content"
                     android:layout_height="wrap_content"
                     android:text="@string/wed_7"
-                    android:textSize="28sp"
-
-                    />
+                    android:textSize="28sp" />
 
                 <com.google.android.material.chip.Chip
                     style="@style/chipTime"
@@ -387,22 +340,20 @@
                     android:text="@string/thu_8"
                     android:textSize="28sp" />
 
-
             </com.google.android.material.chip.ChipGroup>
 
         </HorizontalScrollView>
 
         <com.google.android.material.button.MaterialButton
             android:id="@+id/btnBookAppointment"
+            style="@style/Button.SkyBlue"
             android:layout_width="0dp"
             android:layout_height="wrap_content"
             android:layout_marginTop="40dp"
             android:text="@string/book_an_appointment"
-            style="@style/Button.SkyBlue"
             app:layout_constraintEnd_toEndOf="@+id/horizontalScrollViewDate"
             app:layout_constraintStart_toStartOf="@+id/horizontalScrollViewDate"
             app:layout_constraintTop_toBottomOf="@+id/horizontalScrollViewDate" />
-
 
     </androidx.constraintlayout.widget.ConstraintLayout>
 </layout>

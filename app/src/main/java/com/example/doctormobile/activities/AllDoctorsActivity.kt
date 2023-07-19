@@ -26,20 +26,15 @@ class AllDoctorsActivity : AppCompatActivity(), OnButtonClick {
         initViews()
     }
 
-    /**
-     * setting views
-     */
     private fun initViews() {
 
         val docs = intent.getParcelableArrayListExtra<Doctor>("doctors")
-
         allDoctors = docs as ArrayList<Doctor>
         visibleDoctors = allDoctors
         binding.toolbar.toolbarTitle.text = docs.first().type ?: ""
         binding.toolbar.imgBack.setOnClickListener {
             onBackPressedDispatcher.onBackPressed()
         }
-//        visibleDoctors = Doctor.doctors
         binding.rVDoctors.layoutManager = LinearLayoutManager(this)
         adapter = DoctorAdapter(visibleDoctors)
         adapter.delegate = this
@@ -72,7 +67,6 @@ class AllDoctorsActivity : AppCompatActivity(), OnButtonClick {
                 }
             }
         }
-
         binding.rVDoctors.addItemDecoration(itemDecoration)
     }
 

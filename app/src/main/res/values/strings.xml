@@ -1,6 +1,6 @@
 <resources>
     <string name="app_name">DoctorMobile</string>
-    <string name="korem_ipsum_dolor_sit_amet_consectetur_adipiscing_elit">Korem ipsum dolor sit amet, consectetur adipiscing elit.</string>
+    <string name="signInDescription">Korem ipsum dolor sit amet, consectetur adipiscing elit.</string>
     <string name="sign_in">Sign In</string>
     <string name="enter_password">enter password</string>
     <string name="password">Password</string>
@@ -20,17 +20,17 @@
     <string name="enter_your_password">Enter Your Password</string>
     <string name="sign_up">Sign Up</string>
     <string name="or">OR</string>
-    <string name="already_have_an_account_sign_in">already have an account? sign in</string>
+    <string name="already_have_account">already have an account? sign in</string>
     <string name="mobile_number">Mobile Number</string>
     <string name="enter_your_mobile_number">Enter Your Mobile Number</string>
     <string name="facebook_google">facebook google</string>
     <string name="don_t_have_an_account_sign_up">Don’t have an account? Sign Up</string>
     <string name="dr_upul">Dr.Upul</string>
-    <string name="torem_ipsum_dolor_sit_amet_consectetur_adipiscing_elit">Torem ipsum dolor sit amet, consectetur adipiscing elit.</string>
+    <string name="doctor_description">Torem ipsum dolor sit amet, consectetur adipiscing elit.</string>
     <string name="payment">Payment</string>
     <string name="_120_00">$ 120.00</string>
     <string name="detailes">Detailes</string>
-    <string name="worem_ipsum_dolor_sit_amet_consectetur_adipiscing_elit_nunc_vulputate_libero_et_velit_interdum_ac_aliquet_odio_mattis_class_aptent_taciti_sociosqu_ad_litora_torquent_per_conubia_nostra_per_inceptos_himenaeos_curabitur_tempus_urna_at_turpis_condimentum_lobortis_ut_commodo_efficitur_neque_ut_diam_quam_semper_iaculis_condimentum_ac_vestibulum_eu_nisl">Worem ipsum dolor sit amet, consectetur adipiscing elit. Nunc vulputate libero et velit interdum, ac aliquet odio mattis. Class aptent taciti sociosqu ad litora torquent per conubia nostra, per inceptos himenaeos. Curabitur tempus urna at turpis condimentum lobortis. Ut commodo efficitur neque. Ut diam quam, semper iaculis condimentum ac, vestibulum eu nisl.</string>
+    <string name="description">Worem ipsum dolor sit amet, consectetur adipiscing elit. Nunc vulputate libero et velit interdum, ac aliquet odio mattis. Class aptent taciti sociosqu ad litora torquent per conubia nostra, per inceptos himenaeos. Curabitur tempus urna at turpis condimentum lobortis. Ut commodo efficitur neque. Ut diam quam, semper iaculis condimentum ac, vestibulum eu nisl.</string>
     <string name="working_hours">Working Hours</string>
     <string name="_10_00_am">10.00 AM</string>
     <string name="date">Date</string>
@@ -46,12 +46,11 @@
     <string name="_08_00_pm">08.00 PM</string>
     <string name="_09_00_pm">09.00 PM</string>
     <string name="_10_00_pm">10.00 PM</string>
-    <!-- TODO: Remove or change this placeholder text -->
     <string name="hello_blank_fragment">Hello blank fragment</string>
     <string name="timing">Timing</string>
     <string name="chat">Chat</string>
     <string name="profile">Profile</string>
-    <string name="yorem_ipsum_dolor_sit_amet_consectetur_adipiscing_elit_nunc_vulputate_libero_et_velit_interdum_ac_aliquet_odio_mattis">Yorem ipsum dolor sit amet, consectetur adipiscing elit. Nunc vulputate libero et velit interdum, ac aliquet odio mattis.</string>
+    <string name="doctorDescription">Yorem ipsum dolor sit amet, consectetur adipiscing elit. Nunc vulputate libero et velit interdum, ac aliquet odio mattis.</string>
     <string name="medical_center">Medical Center</string>
     <string name="doctor_picture">Doctor Picture</string>
     <string name="sun_4">Sun 4</string>
@@ -91,5 +90,12 @@
     <string name="cvv">CVV</string>
     <string name="expiry_date">Expiry Date</string>
     <string name="name">Name</string>
+    <string name="chathura_sampath">Chathura Sampath</string>
+    <string name="textview">TextView</string>
+    <string name="toolbar_title">Toolbar Title</string>
+    <string name="back_image">Back Image</string>
+    <string name="notification_logo">notification logo</string>
+    <string name="status_image">status image</string>
+    <string name="_2">2</string>
 
 </resources>

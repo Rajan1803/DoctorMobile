@@ -3,16 +3,11 @@
     xmlns:app="http://schemas.android.com/apk/res-auto"
     xmlns:tools="http://schemas.android.com/tools">
 
-    <data>
-
-    </data>
-
     <androidx.constraintlayout.widget.ConstraintLayout
         android:layout_width="match_parent"
         android:layout_height="match_parent"
         android:padding="16dp"
         tools:context=".activities.PaymentSuccessActivity">
-
 
         <androidx.cardview.widget.CardView
             android:id="@+id/scrollView"
@@ -20,24 +15,20 @@
             android:layout_height="wrap_content"
             android:layout_marginTop="150dp"
             app:cardCornerRadius="100dp"
-            app:layout_constraintTop_toTopOf="parent"
-            app:layout_constraintStart_toStartOf="parent"
             app:layout_constraintEnd_toEndOf="parent"
-
-
-            >
+            app:layout_constraintStart_toStartOf="parent"
+            app:layout_constraintTop_toTopOf="parent">
 
             <ImageView
                 android:id="@+id/imgvSuccess"
                 style="@style/circuler_image"
                 android:layout_width="200dp"
                 android:layout_height="200dp"
-
-                app:srcCompat="@drawable/check_payment"
                 android:background="@color/skyBlue"
+                android:contentDescription="@string/payment_success"
                 app:layout_constraintDimensionRatio="1:1"
+                app:srcCompat="@drawable/check_payment" />
 
-                android:contentDescription="@string/payment_success" />
         </androidx.cardview.widget.CardView>
 
         <TextView
@@ -75,5 +66,6 @@
             app:layout_constraintBottom_toBottomOf="parent"
             app:layout_constraintEnd_toEndOf="parent"
             app:layout_constraintStart_toStartOf="parent" />
+
     </androidx.constraintlayout.widget.ConstraintLayout>
 </layout>

@@ -3,10 +3,6 @@
     xmlns:app="http://schemas.android.com/apk/res-auto"
     xmlns:tools="http://schemas.android.com/tools">
 
-    <data>
-
-    </data>
-
     <androidx.constraintlayout.widget.ConstraintLayout
         android:layout_width="match_parent"
         android:layout_height="match_parent"
@@ -16,8 +12,6 @@
             android:id="@+id/nestedScrollV"
             android:layout_width="match_parent"
             android:layout_height="0dp"
-
-
             app:layout_constraintBottom_toBottomOf="parent"
             app:layout_constraintEnd_toEndOf="parent"
             app:layout_constraintStart_toStartOf="parent"
@@ -26,9 +20,7 @@
             <androidx.constraintlayout.widget.ConstraintLayout
                 android:layout_width="match_parent"
                 android:layout_height="match_parent"
-                android:padding="16dp"
-
-                >
+                android:padding="16dp">
 
                 <com.google.android.material.textview.MaterialTextView
                     android:id="@+id/txtvProfile"
@@ -48,13 +40,11 @@
                     android:id="@+id/imgNotification"
                     android:layout_width="wrap_content"
                     android:layout_height="wrap_content"
-                    android:contentDescription="notification logo"
+                    android:contentDescription="@string/notification_logo"
                     android:src="@drawable/notification"
                     app:layout_constraintBottom_toBottomOf="@id/txtvProfile"
                     app:layout_constraintEnd_toEndOf="parent"
                     app:layout_constraintStart_toEndOf="@id/txtvProfile"
-
-
                     app:layout_constraintTop_toTopOf="@id/txtvProfile" />
 
                 <androidx.appcompat.widget.SearchView
@@ -63,11 +53,11 @@
                     android:layout_width="0dp"
                     android:layout_height="wrap_content"
                     android:layout_marginTop="30dp"
-                    app:queryBackground="@android:color/transparent"
                     app:iconifiedByDefault="false"
                     app:layout_constraintEnd_toEndOf="parent"
                     app:layout_constraintStart_toStartOf="@+id/txtvProfile"
                     app:layout_constraintTop_toBottomOf="@id/txtvProfile"
+                    app:queryBackground="@android:color/transparent"
                     app:queryHint="Search a Doctar" />
 
 
@@ -78,7 +68,6 @@
                     android:layout_marginTop="30dp"
                     app:layout_constraintEnd_toEndOf="@+id/searchvHomeDoctor"
                     app:layout_constraintStart_toStartOf="parent"
-
                     app:layout_constraintTop_toBottomOf="@id/searchvHomeDoctor" />
 
                 <com.google.android.material.tabs.TabLayout
@@ -100,7 +89,6 @@
                     android:layout_height="wrap_content"
                     android:fontFamily="@font/averia_sans_libre"
                     android:text="@string/categories"
-
                     android:textSize="24sp"
                     app:layout_constraintStart_toStartOf="@+id/searchvHomeDoctor"
                     app:layout_constraintTop_toBottomOf="@+id/tablayout" />
@@ -116,18 +104,15 @@
                     app:layout_constraintEnd_toEndOf="parent"
                     app:layout_constraintTop_toTopOf="@+id/txtvCategories" />
 
-
                 <androidx.recyclerview.widget.RecyclerView
                     android:id="@+id/rvCategory"
                     android:layout_width="0dp"
                     android:layout_height="wrap_content"
                     android:orientation="horizontal"
                     app:layout_constraintEnd_toEndOf="@id/txtvSeeAll"
-                    app:layout_constraintTop_toBottomOf="@id/txtvCategories"
                     app:layout_constraintStart_toStartOf="@id/txtvCategories"
-                    tools:listitem="@tools:sample/cities"
-
-                    />
+                    app:layout_constraintTop_toBottomOf="@id/txtvCategories"
+                    tools:listitem="@tools:sample/cities" />
 
 
                 <TextView
@@ -137,8 +122,6 @@
                     android:layout_marginTop="30dp"
                     android:fontFamily="@font/averia_sans_libre"
                     android:text="@string/all_doctors"
-
-
                     android:textSize="24sp"
                     app:layout_constraintStart_toStartOf="@id/rvCategory"
                     app:layout_constraintTop_toBottomOf="@id/rvCategory" />
@@ -148,29 +131,25 @@
                     android:layout_width="wrap_content"
                     android:layout_height="wrap_content"
                     android:fontFamily="@font/averia_sans_libre_bold"
-
                     android:text="@string/see_all"
                     android:textSize="16sp"
                     app:layout_constraintBottom_toBottomOf="@+id/txtvAllDocs"
                     app:layout_constraintEnd_toEndOf="@id/txtvAll"
                     app:layout_constraintTop_toTopOf="@+id/txtvAllDocs" />
 
-
                 <androidx.recyclerview.widget.RecyclerView
                     android:id="@+id/rvHomeDoctors"
                     android:layout_width="0dp"
                     android:layout_height="wrap_content"
-
-
                     app:layout_constraintBottom_toBottomOf="parent"
                     app:layout_constraintEnd_toEndOf="@+id/txtvSeeAll"
                     app:layout_constraintStart_toStartOf="@+id/txtvAllDocs"
                     app:layout_constraintTop_toBottomOf="@+id/txtvAllDocs" />
-            </androidx.constraintlayout.widget.ConstraintLayout>
 
+            </androidx.constraintlayout.widget.ConstraintLayout>
 
         </androidx.core.widget.NestedScrollView>
 
-
     </androidx.constraintlayout.widget.ConstraintLayout>
+
 </layout>

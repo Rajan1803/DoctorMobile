@@ -19,13 +19,11 @@ class SignUpActivity : AppCompatActivity() {
         initViews()
     }
 
-    /**
-     * setting views
-     */
     private fun initViews() {
-
-        binding.toolbar.toolbarTitle.text = getString(R.string.create_new_account)
-        binding.toolbar.imgBack.visibility = View.GONE
+        binding.toolbar.apply {
+            toolbarTitle.text = getString(R.string.create_new_account)
+            imgBack.visibility = View.GONE
+        }
         binding.txtvToSignIn.setOnClickListener {
             val intent = Intent(this, WelcomeActivity::class.java)
             startActivity(intent)
@@ -38,7 +36,6 @@ class SignUpActivity : AppCompatActivity() {
             }
 
         }
-
         binding.etxtEmail.addTextChangedListener { email ->
             if (!Utility.isEmailValid(email.toString())) {
                 binding.txtInputLayoutEmail.error = getString(R.string.invalidEmailMessage)
@@ -46,7 +43,6 @@ class SignUpActivity : AppCompatActivity() {
                 binding.txtInputLayoutEmail.error = null
             }
         }
-
         binding.btnSignUp.setOnClickListener {
             if (!isAllFieldsValid()) {
                 Toast.makeText(this, "fill All Fields Properly", Toast.LENGTH_SHORT).show()

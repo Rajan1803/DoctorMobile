@@ -16,7 +16,7 @@ import com.example.doctormobile.viewmodel.LoginViewModel
 
 class WelcomeActivity : AppCompatActivity() {
 
-    lateinit var binding: ActivityWelcomeBinding
+    private lateinit var binding: ActivityWelcomeBinding
     override fun onCreate(savedInstanceState: Bundle?) {
         super.onCreate(savedInstanceState)
         installSplashScreen()
@@ -34,7 +34,7 @@ class WelcomeActivity : AppCompatActivity() {
             val loginViewModel = ViewModelProvider(
                 this,
                 LoginVMFactory(LoginRepository())
-            ).get(LoginViewModel::class.java)
+            )[LoginViewModel::class.java]
             loginViewModel.postLoginData(
                 binding.etxtEmail.text?.toString(),
                 binding.etxtPassword.text?.toString()
@@ -54,7 +54,7 @@ class WelcomeActivity : AppCompatActivity() {
 
     private fun signIn(loginResponse: LoginResponse?) {
         if (loginResponse == null) {
-            Toast.makeText(this, "Enter Valid Username and Password", Toast.LENGTH_SHORT).show()
+            Toast.makeText(this, getString(R.string.enter_valid_username_and_password), Toast.LENGTH_SHORT).show()
         } else {
             val intent = Intent(this, DoctorHomeActivity::class.java)
             startActivity(intent)

@@ -97,5 +97,7 @@
     <string name="notification_logo">notification logo</string>
     <string name="status_image">status image</string>
     <string name="_2">2</string>
+    <string name="fill_all_fields_properly">fill All Fields Properly</string>
+    <string name="enter_valid_username_and_password">Enter Valid Username and Password</string>
 
 </resources>

@@ -9,7 +9,7 @@ import com.example.doctormobile.databinding.ActivityDoctorInfoBinding
 import com.example.doctormobile.model.Doctor
 
 class DoctorInfoActivity : AppCompatActivity() {
-    lateinit var binding: ActivityDoctorInfoBinding
+    private lateinit var binding: ActivityDoctorInfoBinding
     override fun onCreate(savedInstanceState: Bundle?) {
         super.onCreate(savedInstanceState)
         binding = ActivityDoctorInfoBinding.inflate(layoutInflater)

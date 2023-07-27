@@ -8,7 +8,7 @@ import com.example.doctormobile.R
 import com.example.doctormobile.databinding.ActivityPaymentBinding
 
 class PaymentActivity : AppCompatActivity() {
-    lateinit var binding: ActivityPaymentBinding
+    private lateinit var binding: ActivityPaymentBinding
     override fun onCreate(savedInstanceState: Bundle?) {
         super.onCreate(savedInstanceState)
         binding = ActivityPaymentBinding.inflate(layoutInflater)
@@ -35,6 +35,9 @@ class PaymentActivity : AppCompatActivity() {
                     binding.btnPayNow.text = getString(R.string.place_order)
                 }
             }
+        }
+        binding.toolbar.imgBack.setOnClickListener {
+            onBackPressedDispatcher.onBackPressed()
         }
         binding.btnPayNow.setOnClickListener {
             val intent = Intent(this, PaymentSuccessActivity::class.java)

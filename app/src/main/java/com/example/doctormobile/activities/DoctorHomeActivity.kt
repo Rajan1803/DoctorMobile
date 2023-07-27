@@ -13,7 +13,7 @@ import com.example.doctormobile.fragments.TimingFragment
 
 class DoctorHomeActivity : AppCompatActivity() {
 
-    lateinit var binding: ActivityDoctorHomeBinding
+    private lateinit var binding: ActivityDoctorHomeBinding
     override fun onCreate(savedInstanceState: Bundle?) {
         super.onCreate(savedInstanceState)
         binding = ActivityDoctorHomeBinding.inflate(layoutInflater)
@@ -68,4 +68,5 @@ class DoctorHomeActivity : AppCompatActivity() {
         supportFragmentManager.beginTransaction().replace(binding.fragmentContainer.id, fragment)
             .commit()
     }
+
 }

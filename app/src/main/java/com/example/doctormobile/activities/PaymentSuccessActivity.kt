@@ -6,7 +6,7 @@ import androidx.appcompat.app.AppCompatActivity
 import com.example.doctormobile.databinding.ActivityPaymentSuccessBinding
 
 class PaymentSuccessActivity : AppCompatActivity() {
-    lateinit var binding: ActivityPaymentSuccessBinding
+    private lateinit var binding: ActivityPaymentSuccessBinding
     override fun onCreate(savedInstanceState: Bundle?) {
         super.onCreate(savedInstanceState)
         binding = ActivityPaymentSuccessBinding.inflate(layoutInflater)

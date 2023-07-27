@@ -13,7 +13,6 @@ import com.example.doctormobile.model.Doctor
 class CategoryRVAdapter : RecyclerView.Adapter<CategoryRVAdapter.CategoryViewHolder>() {
 
     var category: List<Category>? = null
-
     class CategoryViewHolder(val binding: RecyclerCategoryItemBinding) :
         RecyclerView.ViewHolder(binding.root) {
         fun bind(category: Category?) {

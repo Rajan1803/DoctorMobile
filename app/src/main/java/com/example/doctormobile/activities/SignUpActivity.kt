@@ -11,7 +11,7 @@ import com.example.doctormobile.databinding.ActivitySignUpBinding
 import com.example.doctormobile.helpers.Utility
 
 class SignUpActivity : AppCompatActivity() {
-    lateinit var binding: ActivitySignUpBinding
+    private lateinit var binding: ActivitySignUpBinding
     override fun onCreate(savedInstanceState: Bundle?) {
         super.onCreate(savedInstanceState)
         binding = ActivitySignUpBinding.inflate(layoutInflater)
@@ -45,7 +45,7 @@ class SignUpActivity : AppCompatActivity() {
         }
         binding.btnSignUp.setOnClickListener {
             if (!isAllFieldsValid()) {
-                Toast.makeText(this, "fill All Fields Properly", Toast.LENGTH_SHORT).show()
+                Toast.makeText(this, getString(R.string.fill_all_fields_properly), Toast.LENGTH_SHORT).show()
             } else {
                 val intent = Intent(this, DoctorHomeActivity::class.java)
                 startActivity(intent)

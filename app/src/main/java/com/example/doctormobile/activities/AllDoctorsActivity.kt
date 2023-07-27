@@ -1,24 +1,21 @@
 package com.example.doctormobile.activities
 
 import android.content.Intent
-import android.graphics.Rect
 import android.os.Bundle
-import android.view.View
 import androidx.appcompat.app.AppCompatActivity
 import androidx.appcompat.widget.SearchView
 import androidx.recyclerview.widget.LinearLayoutManager
-import androidx.recyclerview.widget.RecyclerView
-import androidx.recyclerview.widget.RecyclerView.ItemDecoration
 import com.example.doctormobile.adapters.DoctorAdapter
 import com.example.doctormobile.databinding.ActivityAllDoctorsBinding
 import com.example.doctormobile.helpers.OnButtonClick
+import com.example.doctormobile.helpers.RecyclerDecoration
 import com.example.doctormobile.model.Doctor
 
 class AllDoctorsActivity : AppCompatActivity(), OnButtonClick {
-    lateinit var binding: ActivityAllDoctorsBinding
-    lateinit var allDoctors: ArrayList<Doctor>
-    lateinit var adapter: DoctorAdapter
-    lateinit var visibleDoctors: ArrayList<Doctor>
+    private lateinit var binding: ActivityAllDoctorsBinding
+    private lateinit var allDoctors: ArrayList<Doctor>
+    private lateinit var adapter: DoctorAdapter
+    private lateinit var visibleDoctors: ArrayList<Doctor>
     override fun onCreate(savedInstanceState: Bundle?) {
         super.onCreate(savedInstanceState)
         binding = ActivityAllDoctorsBinding.inflate(layoutInflater)
@@ -52,22 +49,7 @@ class AllDoctorsActivity : AppCompatActivity(), OnButtonClick {
                 return false
             }
         })
-
-        /**
-         * item decoration for recyclerview
-         */
-        val itemDecoration = object : ItemDecoration() {
-            override fun getItemOffsets(
-                outRect: Rect, view: View, parent: RecyclerView, state: RecyclerView.State
-            ) {
-                super.getItemOffsets(outRect, view, parent, state)
-                outRect.apply {
-                    top = 30
-                    bottom = 30
-                }
-            }
-        }
-        binding.rVDoctors.addItemDecoration(itemDecoration)
+        binding.rVDoctors.addItemDecoration(RecyclerDecoration(top = 30, bottom = 30))
     }
 
     /**

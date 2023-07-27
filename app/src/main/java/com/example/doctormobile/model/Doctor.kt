@@ -25,7 +25,9 @@ data class Doctor(
     val rating: String?,
 
     @SerializedName("type")
-    val type: String?
+    val type: String?,
+
+    var isSelected: Boolean = false
 ) : Parcelable {
     constructor(parcel: Parcel) : this(
         parcel.readString(),

@@ -7,7 +7,7 @@ import com.bumptech.glide.Glide
 import com.example.doctormobile.databinding.PagerLayoutBinding
 import com.example.doctormobile.model.Slider
 
-class PagerAdapter(val sliders: List<Slider>?) : RecyclerView.Adapter<PagerAdapter.PagerHolder>() {
+class PagerAdapter(private val sliders: List<Slider>?) : RecyclerView.Adapter<PagerAdapter.PagerHolder>() {
     class PagerHolder(val binding: PagerLayoutBinding) : RecyclerView.ViewHolder(binding.root) {
         fun bind(slider: Slider?) {
             binding.slider = slider

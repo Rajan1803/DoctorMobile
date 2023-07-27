@@ -6,7 +6,7 @@ import retrofit2.http.GET
 
 interface ApiService {
 
-    @GET("/v1/d5329133-64bc-434f-b133-51556240f855")
+    @GET("/v1/8a0fe086-f5c6-40c1-95a3-ea6db9606cf5")
     fun getDoctorData(): Call<Hospital>
 
 }

@@ -7,11 +7,11 @@ import retrofit2.converter.gson.GsonConverterFactory
 
 object ApiClient {
 
-    var intercepter = HttpLoggingInterceptor().also {
+    private var interceptor = HttpLoggingInterceptor().also {
         it.level = HttpLoggingInterceptor.Level.BODY
     }
 
-    private val client: OkHttpClient = OkHttpClient.Builder().addInterceptor(intercepter).build()
+    private val client: OkHttpClient = OkHttpClient.Builder().addInterceptor(interceptor).build()
 
     val hospitalApiService: ApiService by lazy {
         Retrofit.Builder()
@@ -33,10 +33,10 @@ object ApiClient {
     }
 
     val uploadService: UploadService by lazy {
-        var intercepter = HttpLoggingInterceptor()
-        intercepter.level = HttpLoggingInterceptor.Level.BODY
+        val interceptor = HttpLoggingInterceptor()
+        interceptor.level = HttpLoggingInterceptor.Level.BODY
 
-        val client = OkHttpClient.Builder().addInterceptor(intercepter).build()
+        val client = OkHttpClient.Builder().addInterceptor(interceptor).build()
 
         Retrofit.Builder()
             .baseUrl("https://api.imgbb.com")

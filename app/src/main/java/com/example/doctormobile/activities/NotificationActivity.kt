@@ -1,18 +1,15 @@
 package com.example.doctormobile.activities
 
-import android.graphics.Rect
 import android.os.Bundle
-import android.view.View
 import androidx.appcompat.app.AppCompatActivity
 import androidx.recyclerview.widget.LinearLayoutManager
-import androidx.recyclerview.widget.RecyclerView
-import androidx.recyclerview.widget.RecyclerView.ItemDecoration
 import com.example.doctormobile.R
 import com.example.doctormobile.adapters.NotificationAdapter
 import com.example.doctormobile.databinding.ActivityNotificationBinding
+import com.example.doctormobile.helpers.RecyclerDecoration
 
 class NotificationActivity : AppCompatActivity() {
-    lateinit var binding: ActivityNotificationBinding
+    private lateinit var binding: ActivityNotificationBinding
     override fun onCreate(savedInstanceState: Bundle?) {
         super.onCreate(savedInstanceState)
         binding = ActivityNotificationBinding.inflate(layoutInflater)
@@ -29,17 +26,9 @@ class NotificationActivity : AppCompatActivity() {
         binding.toolbar.imgBack.setOnClickListener {
             onBackPressedDispatcher.onBackPressed()
         }
-        val itemDecoration = object : ItemDecoration() {
-            override fun getItemOffsets(
-                outRect: Rect, view: View, parent: RecyclerView, state: RecyclerView.State
-            ) {
-                super.getItemOffsets(outRect, view, parent, state)
-                outRect.top = 10
-                outRect.bottom = 10
-            }
-        }
+
         binding.rvNotification.apply {
-            addItemDecoration(itemDecoration)
+            addItemDecoration(RecyclerDecoration(top = 10, bottom = 10))
             layoutManager = LinearLayoutManager(this@NotificationActivity)
             adapter = NotificationAdapter()
         }

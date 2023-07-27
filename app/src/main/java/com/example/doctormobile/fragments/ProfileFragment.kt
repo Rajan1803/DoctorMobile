@@ -1,6 +1,5 @@
 package com.example.doctormobile.fragments
 
-import android.net.Uri
 import android.os.Bundle
 import android.view.LayoutInflater
 import android.view.View
@@ -21,7 +20,7 @@ import java.io.File
 
 
 class ProfileFragment : Fragment() {
-    lateinit var binding: FragmentProfileBinding
+    private lateinit var binding: FragmentProfileBinding
     override fun onCreateView(
         inflater: LayoutInflater, container: ViewGroup?, savedInstanceState: Bundle?
     ): View {
@@ -35,7 +34,7 @@ class ProfileFragment : Fragment() {
     }
 
     private fun initViews() {
-        var contract = registerForActivityResult(ActivityResultContracts.GetContent()) {
+        val contract = registerForActivityResult(ActivityResultContracts.GetContent()) {
             if (it != null) {
                 binding.imgvProfilePic.setImageURI(it)
                 upload()

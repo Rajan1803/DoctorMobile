@@ -20,7 +20,7 @@ class DoctorDataRepository {
             }
 
             override fun onFailure(call: Call<Hospital>, t: Throwable) {
-                Log.d("Network", "onFailure")
+                Log.d("Network", "onFailure ${t.message}")
             }
         })
     }

@@ -12,20 +12,23 @@ import androidx.recyclerview.widget.LinearLayoutManager
 import androidx.recyclerview.widget.RecyclerView
 import androidx.recyclerview.widget.RecyclerView.ItemDecoration
 import com.example.doctormobile.activities.AllDoctorsActivity
+import com.example.doctormobile.activities.DoctorInfoActivity
 import com.example.doctormobile.activities.NotificationActivity
 import com.example.doctormobile.adapters.CategoryRVAdapter
 import com.example.doctormobile.adapters.DoctorAdapter
 import com.example.doctormobile.adapters.PagerAdapter
 import com.example.doctormobile.databinding.FragmentDoctorHomeBinding
+import com.example.doctormobile.helpers.OnButtonClick
+import com.example.doctormobile.helpers.RecyclerDecoration
 import com.example.doctormobile.model.Doctor
 import com.example.doctormobile.viewmodel.DoctorViewModel
 import com.google.android.material.tabs.TabLayoutMediator
 
-class DoctorHomeFragment : Fragment() {
+class DoctorHomeFragment : Fragment(), OnButtonClick {
 
-    var allDoctors = ArrayList<Doctor>()
-    var doctorAdapter = DoctorAdapter(null)
-    var categoryAdapter = CategoryRVAdapter()
+    private var allDoctors = ArrayList<Doctor>()
+    private var doctorAdapter = DoctorAdapter(null)
+    private var categoryAdapter = CategoryRVAdapter()
     lateinit var binding: FragmentDoctorHomeBinding
     override fun onCreateView(
         inflater: LayoutInflater, container: ViewGroup?, savedInstanceState: Bundle?
@@ -36,6 +39,7 @@ class DoctorHomeFragment : Fragment() {
     }
 
     fun initViews() {
+        doctorAdapter.delegate = this
         activity?.let { activity ->
             val viewModel = ViewModelProvider(activity)[DoctorViewModel::class.java]
             viewModel.callApi()
@@ -50,20 +54,9 @@ class DoctorHomeFragment : Fragment() {
                 doctorAdapter.submitList(allDoctors)
             }
         }
-        val categoryItemDecoration = object : ItemDecoration() {
-            override fun getItemOffsets(
-                outRect: Rect, view: View, parent: RecyclerView, state: RecyclerView.State
-            ) {
-                super.getItemOffsets(outRect, view, parent, state)
-                outRect.apply {
-                    right = 20
-
-                }
-            }
-        }
 
         binding.rvCategory.apply {
-            addItemDecoration(categoryItemDecoration)
+            addItemDecoration(RecyclerDecoration(right = 20))
             layoutManager = LinearLayoutManager(activity, LinearLayoutManager.HORIZONTAL, false)
             adapter = categoryAdapter
         }
@@ -99,5 +92,11 @@ class DoctorHomeFragment : Fragment() {
             val intent = Intent(activity, NotificationActivity::class.java)
             startActivity(intent)
         }
+    }
+
+    override fun onBtnSubmitClick(doctor: Doctor?) {
+        val intent = Intent(activity, DoctorInfoActivity::class.java)
+        intent.putExtra("doctor", doctor)
+        startActivity(intent)
     }
 }

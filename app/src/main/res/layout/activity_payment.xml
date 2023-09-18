@@ -1,0 +1,205 @@
+<?xml version="1.0" encoding="utf-8"?>
+<layout xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:app="http://schemas.android.com/apk/res-auto"
+    xmlns:tools="http://schemas.android.com/tools">
+
+    <androidx.constraintlayout.widget.ConstraintLayout
+        android:layout_width="match_parent"
+        android:layout_height="match_parent"
+        android:background="@color/skyBlue"
+        tools:context=".activities.PaymentActivity">
+
+        <include
+            android:id="@+id/toolbar"
+            layout="@layout/toolbar_layout" />
+
+        <TextView
+            android:id="@+id/txtvPrice"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:layout_marginTop="75dp"
+            android:fontFamily="@font/averia_sans_libre_bold"
+            android:text="@string/_120_00"
+            android:textColor="@color/white"
+            android:textSize="50sp"
+            app:layout_constraintEnd_toEndOf="parent"
+            app:layout_constraintStart_toStartOf="parent"
+            app:layout_constraintTop_toTopOf="parent" />
+
+        <androidx.cardview.widget.CardView
+            android:id="@+id/cardview"
+            android:layout_width="0dp"
+            android:layout_height="0dp"
+            android:layout_marginTop="68dp"
+            app:layout_constraintBottom_toBottomOf="parent"
+            app:layout_constraintEnd_toEndOf="parent"
+            app:layout_constraintStart_toStartOf="parent"
+            app:layout_constraintTop_toBottomOf="@id/txtvPrice">
+
+            <androidx.constraintlayout.widget.ConstraintLayout
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:padding="16dp">
+
+                <TextView
+                    android:id="@+id/txtvChoosePayment"
+                    android:layout_width="0dp"
+                    android:layout_height="wrap_content"
+                    android:layout_marginTop="24dp"
+                    android:fontFamily="@font/averia_sans_libre_bold"
+                    android:text="@string/doctor_chanaling_payment_method"
+                    android:textSize="20sp"
+                    app:layout_constraintEnd_toEndOf="parent"
+                    app:layout_constraintStart_toStartOf="parent"
+                    app:layout_constraintTop_toTopOf="parent" />
+
+                <RadioGroup
+                    android:id="@+id/rgChoosePaymentMode"
+                    android:layout_width="0dp"
+                    android:layout_height="wrap_content"
+                    android:checkedButton="@id/btnCardPayment"
+                    android:orientation="horizontal"
+                    android:padding="8dp"
+                    app:layout_constraintEnd_toEndOf="parent"
+                    app:layout_constraintStart_toStartOf="parent"
+                    app:layout_constraintTop_toBottomOf="@+id/txtvChoosePayment">
+
+                    <RadioButton
+                        android:id="@+id/btnCardPayment"
+                        android:layout_width="0dp"
+                        android:layout_height="wrap_content"
+                        android:layout_marginEnd="8dp"
+                        android:layout_weight="1"
+                        android:background="@drawable/radio_btn"
+                        android:button="@android:color/transparent"
+                        android:fontFamily="@font/averia_sans_libre_bold"
+                        android:gravity="center"
+                        android:text="@string/card_payment" />
+
+                    <RadioButton
+                        android:id="@+id/btnCashPayment"
+                        android:layout_width="0dp"
+                        android:layout_height="wrap_content"
+                        android:layout_marginStart="8dp"
+                        android:layout_weight="1"
+                        android:background="@drawable/radio_btn"
+                        android:button="@android:color/transparent"
+                        android:fontFamily="@font/averia_sans_libre_bold"
+                        android:gravity="center"
+                        android:text="@string/cash_payment" />
+                </RadioGroup>
+
+                <TextView
+                    android:id="@+id/txtvCardNumber"
+                    android:layout_width="0dp"
+                    android:layout_height="wrap_content"
+                    android:fontFamily="@font/averia_sans_libre_bold"
+                    android:text="@string/card_number"
+                    android:textSize="18sp"
+                    app:layout_constraintEnd_toEndOf="@+id/rgChoosePaymentMode"
+                    app:layout_constraintStart_toStartOf="@+id/rgChoosePaymentMode"
+                    app:layout_constraintTop_toBottomOf="@+id/rgChoosePaymentMode" />
+
+                <EditText
+                    android:id="@+id/etxtCardNumber"
+                    style="@style/EditText"
+                    android:layout_width="0dp"
+                    android:layout_height="wrap_content"
+                    android:layout_marginTop="15dp"
+                    android:ems="10"
+                    android:inputType="number|numberDecimal"
+                    app:layout_constraintEnd_toEndOf="parent"
+                    app:layout_constraintStart_toStartOf="@+id/txtvCardNumber"
+                    app:layout_constraintTop_toBottomOf="@+id/txtvCardNumber" />
+
+                <TextView
+                    android:id="@+id/txtvExpiryDate"
+                    android:layout_width="wrap_content"
+                    android:layout_height="wrap_content"
+                    android:layout_marginTop="25dp"
+                    android:fontFamily="@font/averia_sans_libre_bold"
+                    android:text="@string/expiry_date"
+                    android:textSize="18sp"
+                    app:layout_constraintStart_toStartOf="@+id/etxtCardNumber"
+                    app:layout_constraintTop_toBottomOf="@+id/etxtCardNumber" />
+
+                <TextView
+                    android:id="@+id/txtvCVV"
+                    android:layout_width="wrap_content"
+                    android:layout_height="wrap_content"
+                    android:fontFamily="@font/averia_sans_libre_bold"
+                    android:text="@string/cvv"
+                    android:textSize="18sp"
+                    app:layout_constraintStart_toEndOf="@+id/etxtExpiryDate"
+                    app:layout_constraintTop_toTopOf="@+id/txtvExpiryDate" />
+
+                <EditText
+                    android:id="@+id/etxtExpiryDate"
+                    style="@style/EditText"
+                    android:layout_width="0dp"
+                    android:layout_height="wrap_content"
+                    android:layout_marginTop="15dp"
+                    android:layout_marginEnd="8dp"
+                    android:ems="10"
+                    android:inputType="datetime|date"
+                    app:layout_constraintEnd_toStartOf="@+id/etxtCVV"
+                    app:layout_constraintStart_toStartOf="@+id/txtvExpiryDate"
+                    app:layout_constraintTop_toBottomOf="@+id/txtvExpiryDate" />
+
+                <EditText
+                    android:id="@+id/etxtCVV"
+                    style="@style/EditText"
+                    android:layout_width="0dp"
+                    android:layout_height="wrap_content"
+                    android:ems="10"
+                    android:inputType="number|numberDecimal"
+                    app:layout_constraintEnd_toEndOf="@+id/etxtCardNumber"
+                    app:layout_constraintTop_toTopOf="@+id/etxtExpiryDate" />
+
+                <TextView
+                    android:id="@+id/txtvName"
+                    android:layout_width="wrap_content"
+                    android:layout_height="wrap_content"
+                    android:layout_marginTop="25dp"
+                    android:fontFamily="@font/averia_sans_libre_bold"
+                    android:text="@string/name"
+                    android:textSize="18sp"
+                    app:layout_constraintStart_toStartOf="@+id/etxtExpiryDate"
+                    app:layout_constraintTop_toBottomOf="@+id/etxtExpiryDate" />
+
+                <EditText
+                    android:id="@+id/etxtName"
+                    style="@style/EditText"
+                    android:layout_width="0dp"
+                    android:layout_height="wrap_content"
+                    android:layout_marginTop="15dp"
+                    android:ems="10"
+                    android:inputType="text"
+                    app:layout_constraintEnd_toEndOf="@+id/etxtCVV"
+                    app:layout_constraintStart_toStartOf="@+id/etxtExpiryDate"
+                    app:layout_constraintTop_toBottomOf="@+id/txtvName" />
+
+                <Button
+                    android:id="@+id/btnPayNow"
+                    style="@style/Button.SkyBlue"
+                    android:layout_width="0dp"
+                    android:layout_height="wrap_content"
+                    android:layout_marginTop="42dp"
+                    android:text="@string/pay_now"
+                    android:textSize="22sp"
+                    app:layout_constraintEnd_toEndOf="@id/etxtName"
+                    app:layout_constraintStart_toStartOf="@id/etxtName"
+                    app:layout_constraintTop_toBottomOf="@id/etxtName" />
+
+                <androidx.constraintlayout.widget.Group
+                    android:id="@+id/group"
+                    android:layout_width="wrap_content"
+                    android:layout_height="wrap_content"
+                    app:constraint_referenced_ids="txtvExpiryDate,etxtCardNumber,txtvCardNumber,etxtExpiryDate,etxtCVV,etxtName,txtvName, txtvCVV" />
+
+            </androidx.constraintlayout.widget.ConstraintLayout>
+
+        </androidx.cardview.widget.CardView>
+
+    </androidx.constraintlayout.widget.ConstraintLayout>
+</layout>

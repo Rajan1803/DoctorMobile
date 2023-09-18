@@ -1,9 +1,87 @@
-<resources xmlns:tools="http://schemas.android.com/tools">
+<resources>
     <!-- Base application theme. -->
     <style name="Base.Theme.DoctorMobile" parent="Theme.Material3.DayNight.NoActionBar">
-        <!-- Customize your light theme here. -->
-        <!-- <item name="colorPrimary">@color/my_light_primary</item> -->
+        <item name="android:windowLightStatusBar">true</item>
+        <item name="android:statusBarColor">@android:color/white</item>
+    </style>
+
+    <style name="Theme.Splash" parent="Theme.SplashScreen">
+        <item name="windowSplashScreenBackground">@color/white</item>
+        <item name="windowSplashScreenAnimatedIcon">@mipmap/splash_round</item>
+        <item name="windowSplashScreenAnimationDuration">0</item>
+        <item name="postSplashScreenTheme">@style/Theme.DoctorMobile</item>
     </style>
 
     <style name="Theme.DoctorMobile" parent="Base.Theme.DoctorMobile" />
+
+    <style name="EditText" parent="ThemeOverlay.Material3.TextInputEditText">
+        <item name="android:padding">16dp</item>
+        <item name="android:paddingStart">15dp</item>
+        <item name="android:textColorHint">@color/hintColor</item>
+        <item name="android:textSize">@dimen/textNormal</item>
+        <item name="android:textColor">@color/black</item>
+        <item name="android:background">@drawable/edittext_rounded</item>
+        <item name="android:fontFamily">@font/averia_sans_libre</item>
+        <item name="android:maxLines">1</item>
+    </style>
+
+    <style name="Button.SkyBlue" parent="ThemeOverlay.Material3.Button">
+        <item name="android:padding">18dp</item>
+        <item name="android:textColor">@color/white</item>
+        <item name="android:backgroundTint">@color/skyBlue</item>
+        <item name="android:gravity">center</item>
+        <item name="cornerRadius">@dimen/btnCornerRadius</item>
+        <item name="android:textAllCaps">false</item>
+        <item name="android:textSize">@dimen/textNormal</item>
+    </style>
+
+    <style name="inputTextLabel" parent="ThemeOverlay.Material3.AutoCompleteTextView">
+        <item name="fontFamily">@font/averia_sans_libre</item>
+        <item name="android:textSize">22sp</item>
+
+    </style>
+
+    <!--        Search View Style-->
+    <style name="SearchView">
+        <item name="android:padding">0dp</item>
+        <item name="android:paddingStart">0dp</item>
+        <item name="android:textColorHint">@color/hintColor</item>
+        <item name="android:textSize">@dimen/textNormal</item>
+        <item name="android:textColor">@color/black</item>
+        <item name="android:background">@drawable/edittext_rounded</item>
+        <item name="android:fontFamily">@font/averia_sans_libre</item>
+        <item name="cornerRadius">10dp</item>
+        <item name="android:maxLines">1</item>
+    </style>
+
+    <!--    chip style-->
+    <style name="chip" parent="ShapeAppearanceOverlay.Material3.Chip">
+        <item name="android:textColor">@color/white</item>
+        <item name="chipMinHeight">50dp</item>
+        <item name="backgroundTint">@color/skyBlue</item>
+        <item name="chipStartPadding">10dp</item>
+        <item name="chipEndPadding">10dp</item>
+        <item name="android:padding">20dp</item>
+        <item name="android:textSize">20sp</item>
+    </style>
+
+    <!--    rounded imageview-->
+    <style name="roundedImageViewRounded">
+        <item name="cornerFamily">rounded</item>
+        <item name="cornerSize">50%</item>
+    </style>
+
+    <!--    style for time chips-->
+    <style name="chipTime" parent="ShapeAppearanceOverlay.Material3.Chip">
+        <item name="chipBackgroundColor">@color/chip_state</item>
+        <item name="chipMinHeight">50dp</item>
+        <item name="fontFamily">@font/averia_sans_libre</item>
+        <item name="android:checkable">true</item>
+    </style>
+
+    <style name="circuler_image" >
+        <item name="cornerFamily">rounded</item>
+        <item name="cornerSize">50%</item>
+    </style>
+
 </resources>

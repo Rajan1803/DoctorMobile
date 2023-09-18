@@ -1,0 +1,30 @@
+<?xml version="1.0" encoding="utf-8"?>
+<layout xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:app="http://schemas.android.com/apk/res-auto">
+
+    <androidx.constraintlayout.widget.ConstraintLayout
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content">
+
+        <com.google.android.material.imageview.ShapeableImageView
+            android:id="@+id/imgStatus"
+            android:layout_width="60dp"
+            android:layout_height="60dp"
+            app:layout_constraintStart_toStartOf="parent"
+            app:layout_constraintTop_toTopOf="parent"
+            app:shapeAppearanceOverlay="@style/circuler_image"
+            app:srcCompat="@drawable/chat_user_first" />
+
+        <androidx.appcompat.widget.AppCompatButton
+            android:id="@+id/btnGreen"
+            android:layout_width="10dp"
+            android:layout_height="10dp"
+            android:layout_marginTop="5dp"
+            android:layout_marginEnd="10dp"
+            android:background="@drawable/circuler_button"
+            app:layout_constraintEnd_toEndOf="@+id/imgStatus"
+            app:layout_constraintTop_toTopOf="@+id/imgStatus" />
+
+    </androidx.constraintlayout.widget.ConstraintLayout>
+
+</layout>
